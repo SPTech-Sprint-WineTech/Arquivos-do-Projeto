@@ -1,29 +1,24 @@
-Entregáveis: WineTech Sprint 02 Presentation
+Sprint 02 - WineTech
 
 Descrição:
-Este repositório é dedicado à apresentação da Sprint 02 da organização WineTech. Aqui você encontrará todos os recursos necessários para entender o progresso e os resultados alcançados durante esta sprint emocionante.
+Este repositório é dedicado à apresentação da Sprint 02 do grupo 11, integrante do primeiro semestre do curso de Análise e Desenvolvimento de Sistemas da São Paulo Tech School. Responsáveis pela Organização WineTech. Aqui você encontrará todos os recursos necessários para compreender o progresso e os resultados alcançados durante esta sprint.
 
 Conteúdo:
 
-Documentação do projeto: Contexto de negócio, objetivo, premissas, restrições;
+Documentação do Projeto: Contexto de negócios, objetivos, justificativa, premissas, restrições, planilha de risco e backlog.
 Código-Fonte: O código-fonte desenvolvido durante a sprint, organizado por projetos ou funcionalidades específicas.
-Ferramenta de gestão: Todas as issues relacionadas a esta sprint, incluindo as tarefas concluídas, pendentes.
-Pull Requests: Registros de todos os pull requests criados e mesclados durante a sprint.
-Relatórios: Relatórios de progresso, métricas de desempenho e análises de resultados.
-
+Ferramenta de Gestão: Todas as tarefas entregáveis relacionadas a esta sprint, incluindo as tarefas concluídas e pendentes.
+Commits: Registros de todos os commits criados e mesclados durante a sprint.
 Objetivo:
 Este repositório serve como um ponto central para que todas as partes interessadas acompanhem o andamento da sprint e compreendam os resultados alcançados. Também é um espaço onde os membros da equipe podem colaborar, discutir e revisar o trabalho realizado durante esta sprint.
 
 Como Contribuir:
 
 Clone o repositório em sua máquina local.
-Crie uma branch para sua tarefa ou correção.
 Faça as alterações necessárias.
-Envie um pull request para a branch principal.
-Aguarde revisão e feedback da equipe.
-
+Envie um commit detalhado para a branch principal.
 Notas Adicionais:
+
 Certifique-se de manter este repositório atualizado com informações precisas e relevantes durante a sprint.
-Utilize as issues para rastrear e discutir problemas específicos relacionados à sprint.
-Mantenha a comunicação transparente entre os membros da equipe através de comentários em pull requests e issues.
-Agradecemos por sua contribuição e dedicação para tornar esta sprint um sucesso. Juntos, estamos construindo algo incrível!
+Utilize os commits para rastrear e discutir problemas específicos relacionados à sprint.
+Mantenha a comunicação transparente entre os membros da equipe através de comentários em commits.
