@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+header {
+    background-image: url(img/red-wine\ 1.png);
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+    height: 10%;
+    align-items: center;
+    color: white;
+}
+
+.login {
+    display: inline-flex;
+    padding: 16px 76px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    border: 1px solid #FFF;
+    font-size: 20px;
+    color: white;
+}
