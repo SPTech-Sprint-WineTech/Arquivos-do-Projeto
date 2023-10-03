@@ -20,6 +20,8 @@ nav {
     height: 10%;
     align-items: center;
     color: white;
+    font-family: "Montserrat";
+    font-weight: 400;
 }
 
 .login {
