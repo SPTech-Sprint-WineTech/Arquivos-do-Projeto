@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+html, body {
+    overflow: hidden;
+}
+
+body {
+    background-image: url('imagens/background.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: black;
+}
+
+header {
+    padding: 1px;
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    width: 10%;
+    height: auto; /* Use 'auto' para manter a proporção da imagem */
+    margin-top: 1%;
+    margin-left: 16.66%;
+}
+
+#ancora_home {
+    margin-right: 16.92%;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+#tabela_de_cadastro {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1%;
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+}
+
+/* Adicione um novo CSS para os campos de dados para centralizá-los e colocá-los um abaixo do outro */
+.campo_de_dados {
+    width: 50%; /* Ajuste a largura conforme necessário */
+    padding: 10px;
+    margin: 10px auto; /* Define as margens para centralizar horizontalmente */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    display: block; /* Certifica-se de que os campos ocupem toda a largura da div */
+}
+
+/* Adicione algum espaço vertical entre os campos */
+.campo_de_dados + .campo_de_dados {
+    margin-top: 10px;
+}
+
+/* Estilize o botão de cadastrar */
+#botao_cadastrar {
+    width: 50%; /* Ajuste a largura conforme necessário */
+    padding: 10px;
+    margin: 10px auto; /* Centralize horizontalmente */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    cursor: pointer;
+}
+
+/* Adicione algum espaço vertical abaixo do botão */
+#botao_cadastrar + .campo_de_dados {
+    margin-top: 10px;
+}
