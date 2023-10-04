@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 html, body {
@@ -41,7 +42,6 @@ main {
 }
 
 #tabela_de_cadastro {
-    background-color: rgba(0, 0, 0, 0.5);
     padding: 1%;
     border-radius: 5px;
     text-align: center;
@@ -50,8 +50,9 @@ main {
 
 /* Adicione um novo CSS para os campos de dados para centralizá-los e colocá-los um abaixo do outro */
 .campo_de_dados {
-    width: 50%; /* Ajuste a largura conforme necessário */
+    width: 98%; /* Ajuste a largura conforme necessário */
     padding: 10px;
+    margin-left: 0px;
     margin: 10px auto; /* Define as margens para centralizar horizontalmente */
     border: none;
     border-radius: 5px;
@@ -59,14 +60,9 @@ main {
     display: block; /* Certifica-se de que os campos ocupem toda a largura da div */
 }
 
-/* Adicione algum espaço vertical entre os campos */
-.campo_de_dados + .campo_de_dados {
-    margin-top: 10px;
-}
-
 /* Estilize o botão de cadastrar */
 #botao_cadastrar {
-    width: 50%; /* Ajuste a largura conforme necessário */
+    width: 105%; /* Ajuste a largura conforme necessário */
     padding: 10px;
     margin: 10px auto; /* Centralize horizontalmente */
     border: none;
@@ -75,9 +71,29 @@ main {
     background-color: #007bff; /* Cor de fundo do botão */
     color: white; /* Cor do texto do botão */
     cursor: pointer;
+    color: #FFF;
+    font-family: Work Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
 
 /* Adicione algum espaço vertical abaixo do botão */
 #botao_cadastrar + .campo_de_dados {
     margin-top: 10px;
+}
+
+h1 {
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+h2 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
