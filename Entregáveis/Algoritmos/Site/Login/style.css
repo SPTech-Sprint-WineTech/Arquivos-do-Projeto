@@ -11,14 +11,15 @@ body {
   width: 10%;
   height: 10%;
   margin-top: 1%;
-  margin-left: 21%;
+  margin-left: 26%;
 }
-#imagem_de_fundo {
-  height: 100vh;
-  width: 99vh;
-  border-radius: 100px, 0px, 0px, 100px;
-  position: absolute;
+#video_de_fundo {
+  height: 90vh;
+  width: 90vh;
+  border-radius: 10px, 10px, 10px, 10px;
+  position: fixed;
   right: 0%;
+  filter: brightness(150%);
 }
 
 h1 {
@@ -27,7 +28,7 @@ h1 {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin-left: 11.5%;
+  margin-left: 16.66%;
 }
 
 h2 {
@@ -37,7 +38,7 @@ h2 {
   font-weight: 400;
   line-height: normal;
   margin-top: 10px;
-  margin-left: 11.7%;
+  margin-left: 16.66%;
 }
 
 h3 {
@@ -47,7 +48,7 @@ h3 {
   font-weight: 400;
   line-height: normal;
   margin-top: 40px;
-  margin-left: 11.7%;
+  margin-left: 16.66%;
 }
 
 .campos_de_entrada {
@@ -63,7 +64,7 @@ h3 {
   border-bottom: 1px solid #1f1f1f;
   padding-bottom: 1px;
   margin-top: 10px;
-  margin-left: 11.7%;
+  margin-left: 16.66%;
   width: 24%;
 }
 
@@ -76,8 +77,7 @@ h4 {
   line-height: normal;
   align-items: center;
   margin-top: 25px;
-  margin-left: 19%;
-  margin-left: 19%;
+  margin-left: 24%
 }
 
 h5 {
@@ -87,7 +87,7 @@ h5 {
   font-weight: 400;
   line-height: normal;
   margin-top: 2%;
-  margin-left: 15%;
+  margin-left: 21.09%;
 }
 
 #botao_logar {
@@ -106,7 +106,7 @@ h5 {
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
   opacity: 0.8;
   margin-top: 25px;
-  margin-left: 11.5%;
+  margin-left: 16.66%;
 }
 
 #botao_logar:hover {
