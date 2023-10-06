@@ -5,30 +5,31 @@
   font-family: "Montserrat", sans-serif;
 }
 
-html,
-body {
-  overflow: hidden;
-}
-
 body {
   background: url(imagens/background.png);
   background-repeat: no-repeat;
   background-position: left bottom;
-  background-position: -50% 200%;
-  background-size: 70%;
+  background-position: -150% 180%;
+  background-size: 90%;
   background-color: black;
+  height: 850px;
+  width: 100%;
 }
 
 header {
   display: flex;
   align-items: center;
+  text-align: center;
+}
+
+picture {
+  width: 100%;
 }
 
 #logo {
   width: 10%;
   height: auto;
   margin-top: 1%;
-  margin-left: 25%;
 }
 
 #ancora_home {
@@ -37,7 +38,7 @@ header {
 }
 main {
   main {
-    height: 100vh;
+    height: 1000px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,28 +50,32 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  height: 100%;
+  height: 80%;
   margin: 0 auto;
-  max-width: 400px;
+  width: 30%;
 }
 
 .campo_de_dados {
-  width: 75%;
-  padding: 1.5%;
-  margin: 1.5% auto;
+  width: 100%;
+  padding: 2% 4%;
+  margin: 2%   auto;
   border: 1px solid #211e1e;
   background-color: #131212;
   font-size: 16px;
   display: block;
+  height: 20px;
+  align-content: center;
+}
+.campo_de_dados::placeholder{
+  font-size: 12px;
 }
 
 #botao_cadastrar {
-  width: 78.5%;
+  width: 108%;
   padding: 10px;
   margin: 8px auto;
   border: none;
-  font-size: 15px;
+  font-size: 12 px;
   background-color: #59514d;
   cursor: pointer;
   font-family: Work Sans;
@@ -82,7 +87,7 @@ main {
 }
 
 #botao_cadastrar:hover {
-  background-color: #59514d6b;
+  background-color: #59514db4;
 }
 
 h1 {
