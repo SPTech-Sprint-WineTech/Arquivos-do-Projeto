@@ -1,0 +1,38 @@
+Relatório - Arquitetura computacional - 05/10/2023
+
+Conteúdo ligação do Arduino com os 5 sensores ativados.
+	
+	1º Montar os 5 sensores no Arduino, de forma que não fechasse um curto-circuíto;
+	
+	2º Replicar o código Arduino fornecido pela professora, adicionando ao fim do código um delay de leitura de 2 segundos;
+	
+	3º Conferir se o código funcionou corretamente;
+	
+	4º Baixar os arquivos Node.js fornecidos pela professora e alterar os campos para acessar o MySQL;
+	
+	5º Abrir o MySQL e criar o banco de dados "winetech" e criar a tabela sensores com seus respectivos campos;
+	
+	6º Abrir o CMD e instalar e rodar o Node.js;
+	
+	7º Conferir o HTML para ver se está tudo rodando perfeitamente
+	
+	Para utilizar os gráficos previamente escolhidos para nosso projeto (LM35 e Umidade do DHT11) iremos apenas deixar comentado as funções "obterDados(dht11Temperatura, 'dht11/temperatura')", "obterDados(luminosidade, 'luminosidade')", "obterDados(chave, 'chave')", para posterior utilização em caso de novas implementações no projeto.
+
+	Voltando ao código:
+	
+	No arquivo main.js temos a conexão do banco de dados MySQL através dos dados fornecidos na variavel poolBancoDados, com essas informações de acesso, o main.js se conecta ao banco de dados podendo realizar insert's e select's, na linha 40 o arduino.pipe realiza o INSERT INTO no banco de dados.
+	Já na linha 67 a constante servidor é responsável por fazer a captação das leituras realizadas no arduino através da porta escolhida.
+	
+	No index.html temos toda a estrutura da pagina, onde foram colocados 5 graficos, sendo um para cada coluna do banco de dados. No script do index.html, na linha 246 temos a funcao obterDados, que é responsável por fazer o GET através do protocolo http iniciado na porta 3000 através do cmd, essa função é chamada uma vez para cada sensor, sendo os dados direcionados para cada grafico referente ao seu respectivo sensor.
+	
+	O código Arduino é em resumo para acessar os sensores e trazer as leituras realizadas convertendo-as para as medidas esperadas de acordo com o tipo de sensor utilizado;
+
+
+MEMBROS DO GRUPO:
+
+AMANDA BAPTISTA
+GUILHERME CRUCI
+HENRIQUE CRISPINO
+KAUAN LUCENA
+PATRICK VELASQUES
+RAISSA DE OLIVEIRA
