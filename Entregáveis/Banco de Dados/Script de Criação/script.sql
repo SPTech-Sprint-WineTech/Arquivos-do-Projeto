@@ -40,6 +40,16 @@ fkVinicola int not null,
 constraint fkVini foreign key (fkVinicola) references vinicola(idVinicola)
 );
 
+create table tipoVinho(
+idVinho int primary key auto_increment,
+tipo varchar(45),
+safra varchar(45),
+tipoBarril varchar(45),
+dataArmazenamento datetime default current_timestamp,
+fkAdega int not null,
+constraint fkAdega foreign key (fkAdega) references adega(idAdega)
+);
+
 create table sensor(
 idSensor int primary key auto_increment,
 tipoSensor varchar(5) not null,
@@ -57,10 +67,3 @@ dataHora datetime default current_timestamp,
 fkSensor int not null,
 constraint fkSense foreign key (fkSensor) references sensor(idSensor)
 );
-
-select * from empresa;
-select * from vinicola;
-select * from enderecoVinicola;
-select * from adega;
-select * from sensor;
-select * from dadosSensor;
