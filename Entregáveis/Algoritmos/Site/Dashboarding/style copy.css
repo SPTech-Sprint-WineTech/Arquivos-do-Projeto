@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
 }
@@ -72,7 +76,7 @@ main {
   background: rgba(128, 128, 128, 0.479);
   border-radius: 10px;
   padding: 10px;
-  z-index: 1; 
+  z-index: 1;
   width: 200px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -85,4 +89,62 @@ li {
 
 Li:hover {
   cursor: pointer;
+}
+
+.container_cards {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-evenly;
+  margin-top: 5%;
+  text-align: center;
+}
+
+.card_sala_alpha {
+  display: flex;
+  flex-direction: column;
+  background-color: #7302177e;
+  height: 125px;
+  padding: 1%;
+  border-radius: 10px;
+}
+
+.card_sala_bravo {
+  display: flex;
+  flex-direction: column;
+  background-color: #7302177e;
+  height: 125px;
+  padding: 1%;
+  border-radius: 10px;
+}
+
+.card_sala_charlie {
+  display: flex;
+  flex-direction: column;
+  background-color: #7302177e;
+  height: 125px;
+  padding: 1%;
+  border-radius: 10px;
+}
+
+.dados_cards {
+  display: flex;
+  flex-direction: row;
+}
+
+.temperatura_cards {
+  width: 50%;
+}
+
+.umidade_cards {
+  width: 50%;
+}
+
+.exibir_graficos {
+  width: 100%;
+}
+
+p {
+  margin-top: 3%;
 }

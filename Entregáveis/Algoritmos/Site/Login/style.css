@@ -19,8 +19,8 @@ body {
   width: 90vh;
   border-radius: 10px, 10px, 10px, 10px;
   position: fixed;
-  right: 0%;
-  filter: brightness(150%);
+  right: -9%;
+  filter: brightness(100%);
   transform: scaleX(-1);
 }
 
@@ -109,6 +109,7 @@ h5 {
   opacity: 0.8;
   margin-top: 25px;
   margin-left: 16.66%;
+
 }
 
 #botao_logar:hover {
