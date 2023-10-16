@@ -60,10 +60,13 @@ constraint fkAdeg foreign key (fkAdega) references adega(idAdega)
 );
 
 create table dadosSensor(
-idDadosSensor int primary key auto_increment,
+idDadosSensor int auto_increment,
 umidade float not null,
 temperatura float not null,
 dataHora datetime default current_timestamp,
-fkSensor int not null,
-constraint fkSense foreign key (fkSensor) references sensor(idSensor)
+fkSensor int,
+constraint fkSense foreign key (fkSensor) references sensor(idSensor),
+primary key(idDadosSensor, fkSensor) 
 );
+
+ 
