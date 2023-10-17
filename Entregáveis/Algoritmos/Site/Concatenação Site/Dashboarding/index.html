@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="nav_bar">
+			<div class="search">
+				<input type="text" placeholder="Buscar" />
+				<img src="./media/magnifying-glass 1.png" alt="lupa" width="30px" />
+			</div>
+			<div class="nav_opcoes">
+				<img src="media/notification.png" width="30px" />
+				<img src="media/bell.png" width="30px" />
+				<div class="menu">
+					<img src="media/Ellipse 8.svg" width="30px" />
+					<img src="media/arrow-down.png" id="arrow-down-button" />
+					<ul>
+						<li>Perfil</li>
+						<li>Dashboard</li>
+						<li>Análise</li>
+						<li>Log Out</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<section class="tela_dados">
+			<div class="secao_adegas">
+				<div class="adega ativa" id="adega_01" onclick="verAdega()">
+					<div class="header_adega">
+						<img src="./imagens/barril-nome-adega.png" class="icone_adega" />
+						<h3>Adega 01</h3>
+					</div>
+					<div class="medicao_adega">
+						<div class="temp_adega">
+							<p>23ºC</p>
+							<img src="./imagens/termometro-1.png" class="icone_temperatura" />
+						</div>
+						<div class="umid_adega">
+							<p>75%</p>
+							<img src="./imagens/termometro-5.png" class="icone_umidade" />
+						</div>
+					</div>
+				</div>
+				<div class="adega ativa" id="adega_02">
+					<div class="header_adega">
+						<img src="./imagens/barril-nome-adega.png" class="icone_adega" />
+						<h3>Adega 02</h3>
+					</div>
+					<div class="medicao_adega">
+						<div class="temp_adega">
+							<p>23ºC</p>
+							<img src="./imagens/termometro-1.png" class="icone_temperatura" />
+						</div>
+						<div class="umid_adega">
+							<p>75%</p>
+							<img src="./imagens/termometro-5.png" class="icone_umidade" />
+						</div>
+					</div>
+				</div>
+				<div class="adega inativa" id="adega_03">
+					<div class="header_adega">
+						<img src="./imagens/barril-nome-adega.png" class="icone_adega" />
+						<h3>Adega 03</h3>
+					</div>
+					<div class="medicao_adega">
+						<div class="temp_adega">
+							<p>0ºC</p>
+							<img src="./imagens/termometro-1.png" class="icone_temperatura" />
+						</div>
+						<div class="umid_adega">
+							<p>0%</p>
+							<img src="./imagens/termometro-5.png" class="icone_umidade" />
+						</div>
+					</div>
+				</div>
+				<div class="adega inativa" id="adega_04">
+					<div class="header_adega">
+						<img src="./imagens/barril-nome-adega.png" class="icone_adega" />
+						<h3>Adega 04</h3>
+					</div>
+					<div class="medicao_adega">
+						<div class="temp_adega">
+							<p>0ºC</p>
+							<img src="./imagens/termometro-1.png" class="icone_temperatura" />
+						</div>
+						<div class="umid_adega">
+							<p>0%</p>
+							<img src="./imagens/termometro-5.png" class="icone_umidade" />
+						</div>
+					</div>
+				</div>
+				<div class="adega inativa" id="adega_05">
+					<div class="header_adega">
+						<img src="./imagens/barril-nome-adega.png" class="icone_adega" />
+						<h3>Adega 05</h3>
+					</div>
+					<div class="medicao_adega">
+						<div class="temp_adega">
+							<p>0ºC</p>
+							<img src="./imagens/termometro-1.png" class="icone_temperatura" />
+						</div>
+						<div class="umid_adega">
+							<p>0%</p>
+							<img src="./imagens/termometro-5.png" class="icone_umidade" />
+						</div>
+					</div>
+				</div>
+				<div class="adega inativa" id="adega_06">
+					<div class="header_adega">
+						<img src="./imagens/barril-nome-adega.png" class="icone_adega" />
+						<h3>Adega 06</h3>
+					</div>
+					<div class="medicao_adega">
+						<div class="temp_adega">
+							<p>0ºC</p>
+							<img src="./imagens/termometro-1.png" class="icone_temperatura" />
+						</div>
+						<div class="umid_adega">
+							<p>0%</p>
+							<img src="./imagens/termometro-5.png" class="icone_umidade" />
+						</div>
+					</div>
+				</div>
+				<div class="adega inativa" id="adega_07">
+					<div class="header_adega">
+						<img src="./imagens/barril-nome-adega.png" class="icone_adega" />
+						<h3>Adega 07</h3>
+					</div>
+					<div class="medicao_adega">
+						<div class="temp_adega">
+							<p>0ºC</p>
+							<img src="./imagens/termometro-1.png" class="icone_temperatura" />
+						</div>
+						<div class="umid_adega">
+							<p>0%</p>
+							<img src="./imagens/termometro-5.png" class="icone_umidade" />
+						</div>
+					</div>
+				</div>
+				<div class="adega inativa" id="adega_08">
+					<div class="header_adega">
+						<img src="./imagens/barril-nome-adega.png" class="icone_adega" />
+						<h3>Adega 08</h3>
+					</div>
+					<div class="medicao_adega">
+						<div class="temp_adega">
+							<p>0ºC</p>
+							<img src="./imagens/termometro-1.png" class="icone_temperatura" />
+						</div>
+						<div class="umid_adega">
+							<p>0%</p>
+							<img src="./imagens/termometro-5.png" class="icone_umidade" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="secao_sensores">
+				<h3>Adega 01</h3>
+				<div class="sensores">
+					<div class="sensor_temperatura">
+						<p>Temperatura</p>
+						<img src="./imagens/grafico temp.png" class="grafico_sensor" />
+					</div>
+					<div class="sensor_umidade">
+						<p>Umidade</p>
+						<img src="./imagens/grafico umidade.png" class="grafico_sensor" />
+					</div>
+				</div>
+			</div>
+			<div class="secao_grafico">
+				<h3>Adega 01</h3>
+				<div class="graficos">
+					<div class="sensor_temperatura" id="grafico_temp">
+						<p>Temperatura</p>
+						<img src="./imagens/grafico temp.png" class="grafico_sensor" />
+					</div>
+					<div class="sensor_umidade" id="grafico_umid">
+						<p>Umidade</p>
+						<img src="./imagens/grafico umidade.png" class="grafico_sensor" />
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- <main></main> -->
+	</body>
+</html>
