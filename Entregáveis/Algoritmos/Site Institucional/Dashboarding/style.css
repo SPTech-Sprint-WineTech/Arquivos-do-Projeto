@@ -104,7 +104,7 @@ body {
   width: 20%;
   height: 40%;
   margin: 2% 2% 0 2%;
-  padding: 2% 1%;
+  padding: 1% 1%;
   border-radius: 10px;
   background-color: rgb(13, 13, 13);
 }
@@ -163,6 +163,7 @@ body {
 
 .icone_temperatura {
   width: 50%;
+  height: 70px;
 }
 
 .umid_adega {
@@ -175,6 +176,7 @@ body {
 
 .icone_umidade {
   width: 50%;
+  height: 70px;
 }
 
 .secao_sensores {
@@ -361,13 +363,13 @@ body {
 
 @keyframes backgroundPulse {
   0% {
-    background-color: rgb(255, 0, 0); /* Defina a cor inicial que você deseja */
+    background-color: rgb(68, 0, 0); /* Defina a cor inicial que você deseja */
   }
   50% {
     background-color: rgb(102, 0, 0); /* Defina uma cor intermediária */
   }
   100% {
-    background-color: rgb(255, 0, 0); /* Volte para a cor inicial */
+    background-color: rgb(68, 0, 0); /* Defina a cor inicial que você deseja */
   }
 }
 

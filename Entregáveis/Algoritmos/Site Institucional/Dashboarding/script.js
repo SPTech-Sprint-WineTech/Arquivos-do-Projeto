@@ -116,18 +116,6 @@ function verAdega01() {
   });
 }
 
-// Função para fazer o background piscar
-function fazerBackgroundPiscar() {
-  var adega02 = document.getElementById("adega_02");
-  adega02.classList.add("pulsating-background");
-  // Outras ações que você deseja realizar ao fazer o background piscar
-}
-
-// Evento que chama a função quando a página é carregada
-window.onload = function () {
-  fazerBackgroundPiscar();
-};
-
 
 function verAdega02() {
   span_temperatura_estado_atual.innerHTML = "Crítico, diminua a temperatura!";
@@ -149,7 +137,7 @@ function verAdega02() {
     var canvas = document.createElement("canvas");
     canvas.id = index === 0 ? "grafico_temperatura" : "grafico_umidade";
     chartContainer.appendChild(canvas);
-
+    
     if (index === 0) {
       // Gráfico de Temperatura
       new Chart(canvas, {
@@ -221,8 +209,21 @@ function verAdega02() {
     }
   });
 
-  alert ("Temperatura em estado critíco, diminua ela o quanto antes! \nUmidade em estado de alerta, Tome cuidado!")
+  setTimeout(function () {
+    alert("Temperatura em estado crítico, diminua o quanto antes! \nUmidade em estado de alerta, cuidado!");
+  }, 1000);
 }
+
+// Função para fazer o background piscar
+function fazerBackgroundPiscar() {
+  var adega02 = document.getElementById("adega_02");
+  adega02.classList.add("pulsating-background");
+}
+
+// Evento que chama a função quando a página é carregada
+window.onload = function () {
+  fazerBackgroundPiscar();
+};
 
 function fechar_modal() {
   var modal_graficos = document.getElementById("modal_graficos"); // substitua 'modal_graficos' pelo ID da sua div
