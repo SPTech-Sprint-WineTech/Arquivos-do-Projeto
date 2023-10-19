@@ -16,8 +16,21 @@
 			rel="stylesheet" />
 	</head>
 	<body>
+		<div id="modal_tipo_vinhos">
+			<div class="container_tipo_vinhos" id="container_tipos">
+				<img src="" id="imagem_tipo_vinho">
+				<div id="sobre_tipo_vinho">
+					<span id="close_modal_vinhos" onclick="fechar_modais()">X</span>
+					<div id="tipo_uva"></div>
+					<br>
+					<p id="tipo_vinho"></p>
+					<p id="temperatura_servico"></p>
+					<p id="harmonizacao_vinho"></p>
+				</div>
+			</div>
+		</div>
 		<div id="modal">
-			<div id="fechar_modal" onclick="fechaModal()">X</div>
+			<div id="fechar_modal_simulador" onclick="fechaModal()">X</div>
 			<div id="bottle">
 				<img
 					src="./imagens/Simulador-Financeiro/Garrafa-esvaziando/0.png"
@@ -27,6 +40,30 @@
 					src="./imagens/Simulador-Financeiro/Garrafa-esvaziando/0.png"
 					id="garrafa-frente"
 					onclick="chamaModal()" />
+			</div>
+		</div>
+		<div id="modal_controle_adega">
+			<div class="container_controle_adega" id="container_controle">
+				<div id="fechar_modal_adega" onclick="fechar_modais()">X</div>
+				<div id="sobre_controle">
+					O controle preciso de temperatura e umidade desempenha um papel fundamental no processo de maturação do vinho em salas de barrica.
+					<br>
+					Primeiramente, a temperatura afeta diretamente a velocidade e a natureza das reações químicas que ocorrem durante o envelhecimento do vinho. Manter a temperatura dentro de uma faixa específica permite que os compostos presentes no vinho se desenvolvam de maneira equilibrada, resultando em um produto final com aromas e sabores mais complexos e harmoniosos.
+					<br>
+					A temperatura inadequada pode acelerar ou retardar a maturação, comprometendo a qualidade do vinho.
+					<br>
+					<br>
+					Além disso, a umidade desempenha um papel crucial na prevenção de problemas como a evaporação excessiva do vinho das barricas, o que pode levar à perda de volume e, consequentemente, à concentração indesejada de sabores e aromas.
+					<br>
+					Manter um nível adequado de umidade também é essencial para evitar a entrada de oxigênio, que pode causar oxidação do vinho e prejudicar sua qualidade.
+					<br>
+					Portanto, o controle rigoroso da umidade ajuda a preservar a integridade do vinho durante o processo de maturação, garantindo que ele alcance seu potencial máximo.
+					<br>
+					<br>
+					Em resumo, o controle de temperatura e umidade em salas de barrica é crucial para garantir a qualidade e a consistência do vinho durante o processo de maturação.
+					<br>
+					A combinação desses fatores permite que os enólogos tenham um controle preciso sobre o desenvolvimento do vinho, assegurando que ele atinja seu potencial máximo em termos de complexidade aromática e sabor, tornando-se uma verdadeira expressão da região e da uva de origem.
+				</div>
 			</div>
 		</div>
 		<div class="opacity">
@@ -43,7 +80,7 @@
 					<a class="nav_fale_conosco" href="#fale_conosco">FALE CONOSCO</a>
 				</div>
 				<div class="midias">
-					<div class="login">ENTRAR</div>
+					<div class="login" onclick="tela_login()">ENTRAR</div>
 				</div>
 			</div>
 			<div id="intro">
@@ -54,73 +91,65 @@
 					fazendo com que exista um bom rendimento e uma alta qualidade dos
 					produtos."
 				</p>
-				<button class="saiba_mais">SAIBA MAIS</button>
+				<button class="saiba_mais" onclick="controle_temperatura()">SAIBA MAIS</button>
 			</div>
 			<div id="sobre_nos">
 				<h2>A WineTech</h2>
 				<h4>Monitoria de Vinhos</h4>
 				<p>
-					Lorem Ipsum is simply dummy text of the printing and typesetting
-					industry. Lorem Ipsum has been the industry's standard dummy text ever
-					since the 1500s, when an unknown printer took a galley of type and
-					scrambled it to make a type specimen book. It has survived not only
-					five centuries, but also the leap into electronic typesetting,
-					remaining essentially unchanged.
+					A WineTech é uma empresa de tecnologia com a Missão de aprimorar a arte da vinificação, garantindo que produtores de vinho tenham controle preciso sobre a temperatura e umidade das suas salas de barrica.
 					<br /><br /><br />
-					It was popularised in the 1960s with the release of Letraset sheets
-					containing Lorem Ipsum passages, and more recently with desktop
-					publishing software like Aldus PageMaker including versions of Lorem
-					Ipsum.
+					Estamos comprometidos em criar soluções tecnológicas avançadas que potencializam o envelhecimento e a maturação do vinho, permitindo que nossos clientes alcancem a excelência na produção de vinhos de qualidade excepcional.
 				</p>
 				<img src="./imagens/about-us.png" alt="" />
 			</div>
 			<div id="controle_vinhos">
 				<h1>Controle de Vinhos</h1>
 				<div class="secao_controle">
-					<div class="wine-item">
-						<img src="./imagens/garrafa-tipos.png" alt="Garrafa 1" />
-						<p class="wine-name">SILVER OAK</p>
+					<div class="wine-item" onclick="sobre_vinhos(`Cabernet Sauvignon`)">
+						<img src="./imagens/tipos-vinho/cabernet-sauvignon.png" alt="Garrafa 1" />
+						<p class="wine-name">CABERNET SAUVIGNON</p>
 						<p class="wine-type">Vinho Tinto</p>
 					</div>
 
-					<div class="wine-item">
-						<img src="./imagens/garrafa-tipos.png" alt="Garrafa2" />
-						<p class="wine-name">SILVER OAK</p>
-						<p class="wine-type">Vinho Tinto</p>
+					<div class="wine-item" onclick="sobre_vinhos(`Chardonnay`)">
+						<img src="./imagens/tipos-vinho/chardonnay.png" alt="Garrafa 2" />
+						<p class="wine-name">CHARDONNAY</p>
+						<p class="wine-type">Vinho Branco</p>
 					</div>
-					<div class="wine-item">
-						<img src="./imagens/garrafa-tipos.png" alt="Garrafa 3" />
-						<p class="wine-name">SILVER OAK</p>
-						<p class="wine-type">Vinho Tinto</p>
+					<div class="wine-item" onclick="sobre_vinhos(`Rosé de Provence`)">
+						<img src="./imagens/tipos-vinho/rose-de-provence.png" alt="Garrafa 3" />
+						<p class="wine-name">ROSÉ DE PROVENCE</p>
+						<p class="wine-type">Vinho Rosé</p>
 					</div>
-					<div class="wine-item">
-						<img src="./imagens/garrafa-tipos.png" alt="Garrafa 4" />
-						<p class="wine-name">SILVER OAK</p>
-						<p class="wine-type">Vinho Tinto</p>
+					<div class="wine-item" onclick="sobre_vinhos(`Prosecco`)">
+						<img src="./imagens/tipos-vinho/prosecco.png" alt="Garrafa 4" />
+						<p class="wine-name">PROSECCO</p>
+						<p class="wine-type">Vinho Espumante</p>
 					</div>
 				</div>
 
 				<div class="secao_controle">
-					<div class="wine-item">
-						<img src="./imagens/garrafa-tipos.png" alt="Garrafa 5" />
-						<p class="wine-name">SILVER OAK</p>
+					<div class="wine-item" onclick="sobre_vinhos(`Pinot Noir`)">
+						<img src="./imagens/tipos-vinho/pinot-noir.png" alt="Garrafa 5" />
+						<p class="wine-name">PINOT NOIR</p>
 						<p class="wine-type">Vinho Tinto</p>
 					</div>
 
-					<div class="wine-item">
-						<img src="./imagens/garrafa-tipos.png" alt="Garrafa 6" />
-						<p class="wine-name">SILVER OAK</p>
-						<p class="wine-type">Vinho Tinto</p>
+					<div class="wine-item" onclick="sobre_vinhos(`Sauvignon Blanc`)">
+						<img src="./imagens/tipos-vinho/sauvignon-blanc.png" alt="Garrafa 6" />
+						<p class="wine-name">SAUVIGNON BLANC</p>
+						<p class="wine-type">Vinho Branco</p>
 					</div>
-					<div class="wine-item">
-						<img src="./imagens/garrafa-tipos.png" alt="Garrafa 7" />
-						<p class="wine-name">SILVER OAK</p>
-						<p class="wine-type">Vinho Tinto</p>
+					<div class="wine-item" onclick="sobre_vinhos(`Zinfandel`)">
+						<img src="./imagens/tipos-vinho/zinfandel.png" alt="Garrafa 7" />
+						<p class="wine-name">ZINFANDEL</p>
+						<p class="wine-type">Vinho Rosé</p>
 					</div>
-					<div class="wine-item">
-						<img src="./imagens/garrafa-tipos.png" alt="Garrafa 8" />
-						<p class="wine-name">SILVER OAK</p>
-						<p class="wine-type">Vinho Tinto</p>
+					<div class="wine-item" onclick="sobre_vinhos(`Cava`)">
+						<img src="./imagens/tipos-vinho/cava.png" alt="Garrafa 8" />
+						<p class="wine-name">CAVA</p>
+						<p class="wine-type">Vinho Espumante</p>
 					</div>
 				</div>
 			</div>
@@ -191,28 +220,31 @@
 						<div class="dados_contato">
 							<p>Qualquer dúvida sobre o nosso projeto, por favor entrar em contato conosco</p>
 							<br>
-							<p><img src="./imagens/contato/phone-svg.png"> (11) 96914-1113</p>
+							<a href="https://wa.me/5511969141113"><img src="./imagens/contato/phone-svg.png"> (11) 96914-1113</a>
 							<br>
 							<p><img src="./imagens/contato/mail-svg.png"> contato@winetech.com</p>
 							<br>
 							<p><img src="./imagens/contato/locate-svg.png"> Rua Haddock Lobo, 595</p>
 					</div>
 					</div>
-					<div class="aside formulario">
-						<input type="text" placeholder="Nome">
-						<input type="email" placeholder="E-mail">
-						<input type="tel" placeholder="Telefone com DDD">
-						<input type="text" placeholder="Assunto">
-						<input type="text" placeholder="Mensagem" class="input_mensagem">
-						<button>Enviar</button>
-					</div>
+					<!-- <form action="https://formspree.io/mjvqjqey" method="POST" class="aside formulario"> -->
+					<form class="aside formulario">
+						<input type="text" placeholder="Nome" name="nome">
+						<input type="email" placeholder="E-mail" name="email">
+						<input type="tel" placeholder="Telefone com DDD" name="telefone">
+						<input type="text" placeholder="Assunto" name="assunto">
+						<input type="text" placeholder="Mensagem" class="input_mensagem" name="mensagem">
+						<button type="submit">Enviar</button>
+					</form>
 				</div>
 			</div>
 			<div class="footer">
 				<div class="footer_box">
 					<div class="valores">
 					<img src="./imagens/Logo/logo-wine-tech-versao-white.png" class="logo">
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+					<p>
+						Nossa Visão é liderar a revolução tecnológica na indústria vinícola, tornando a gestão de temperatura e umidade nas salas de barrica mais acessível e eficiente do que nunca.
+						Queremos ser reconhecidos como o parceiro de confiança dos produtores de vinho em todo o mundo, oferecendo soluções inovadoras que transformam a maneira como o vinho é produzido e envelhecido.</p>
 					</div>
 					<div class="mapa_site">
 						<h3>MAPA DO SITE</h3>
@@ -226,7 +258,7 @@
 						<br>
 						<p>Rua Haddock Lobo, 595 - São Paulo</p>
 						<br>
-						<p>Telefone: +55 11 96914-1113</p>
+						<a href="https://wa.me/5511969141113">Telefone: +55 11 96914-1113</a>
 						<p>E-mail: contato@winetech.com</p>
 						<div class="redes_sociais">
 							<a href="#">
@@ -287,7 +319,7 @@
 		var divGarrafa = document.getElementById("bottle");
 		var imagemGarrafa = document.getElementById("garrafa-frente");
 		var sombraGarrafa = document.getElementById("garrafa-tras");
-		var closeModal = document.getElementById("fechar_modal");
+		var closeModal = document.getElementById("fechar_modal_simulador");
 
 		//Troca imagem da garrafa, esconde a imagem "sombra" e define valores de estilo iniciais para trabalhar a animação
 		imagemGarrafa.src = "./imagens/Simulador-Financeiro/modal.png";
@@ -324,7 +356,7 @@
 		var divGarrafa = document.getElementById("bottle");
 		var imagemGarrafa = document.getElementById("garrafa-frente");
 		var sombraGarrafa = document.getElementById("garrafa-tras");
-		var closeModal = document.getElementById("fechar_modal");
+		var closeModal = document.getElementById("fechar_modal_simulador");
 
 		//esconde botao de fechar modal
 		closeModal.style = "display: none";
@@ -349,4 +381,91 @@
 		// Altera a variavel que controla o mostrar do modal
 		showBottle = 0;
 	}
+
+	function tela_login(){
+		window.location.href = "../Login/index.html"
+	}
+
+	function sobre_vinhos(tipo_vinho){
+		var modal = document.getElementById("modal_tipo_vinhos");
+		var tipo = tipo_vinho;
+
+		if(tipo == "Cabernet Sauvignon"){
+			imagem_tipo_vinho.src = "./imagens/tipos-vinho/cabernet-sauvignon.png"
+			tipo_uva.innerHTML = `Cabernet Sauvignon`;
+			tipo_vinho.innerHTML = `<b>Tipo:</b> Tinto`;
+			temperatura_servico.innerHTML = `<b>Temperatura de Serviço:</b> 16ºC a 20ºC`;
+			harmonizacao_vinho.innerHTML = `<b>Harmonização:</b> Carnes vermelhas, 	queijos duros, massas com molho de tomate e pratos condimentados.`;
+		} else if(tipo == "Chardonnay"){
+			imagem_tipo_vinho.src = "./imagens/tipos-vinho/chardonnay.png"
+			tipo_uva.innerHTML = `Chardonnay`;
+			tipo_vinho.innerHTML = `<b>Tipo:</b> Branco`;
+			temperatura_servico.innerHTML = `<b>Temperatura de Serviço:</b> 8ºC a 12ºC`;
+			harmonizacao_vinho.innerHTML = `<b>Harmonização:</b> Frutos do mar, aves, massas leves, queijos macios e saladas.`;
+		} else if(tipo == "Rosé de Provence"){
+			imagem_tipo_vinho.src = "./imagens/tipos-vinho/rose-de-provence.png"
+			tipo_uva.innerHTML = `Cabernet Sauvignon`;
+			tipo_vinho.innerHTML = `<b>Tipo:</b> Rosé`;
+			temperatura_servico.innerHTML = `<b>Temperatura de Serviço:</b> 8ºC a 12ºC`;
+			harmonizacao_vinho.innerHTML = `<b>Harmonização:</b> Saladas, carnes brancas, frutos do mar, queijos leves, churrasco e comidas de verão.`;
+		} else if(tipo == "Prosecco"){
+			imagem_tipo_vinho.src = "./imagens/tipos-vinho/prosecco.png"
+			tipo_uva.innerHTML = `Prosecco`;
+			tipo_vinho.innerHTML = `<b>Tipo:</b> Espumante`;
+			temperatura_servico.innerHTML = `<b>Temperatura de Serviço:</b> 5ºC a 10ºC`;
+			harmonizacao_vinho.innerHTML = `<b>Harmonização:</b> Aperitivos, frutos do mar, canapés, queijos suaves e sobremesas leves.`;
+		} else if(tipo == "Pinot Noir"){
+			imagem_tipo_vinho.src = "./imagens/tipos-vinho/pinot-noir.png"
+			tipo_uva.innerHTML = `Pinot Noir`;
+			tipo_vinho.innerHTML = `<b>Tipo:</b> Tinto`;
+			temperatura_servico.innerHTML = `<b>Temperatura de Serviço:</b> 16ºC a 20ºC`;
+			harmonizacao_vinho.innerHTML = `<b>Harmonização:</b> Carnes vermelhas, 	queijos duros, massas com molho de tomate e pratos condimentados.`;
+		} else if(tipo == "Sauvignon Blanc"){
+			imagem_tipo_vinho.src = "./imagens/tipos-vinho/sauvignon-blanc.png"
+			tipo_uva.innerHTML = `Sauvignon Blanc`;
+			tipo_vinho.innerHTML = `<b>Tipo:</b> Branco`;
+			temperatura_servico.innerHTML = `<b>Temperatura de Serviço:</b> 8ºC a 12ºC`;
+			harmonizacao_vinho.innerHTML = `<b>Harmonização:</b> Frutos do mar, aves, massas leves, queijos macios e saladas.`;
+		} else if(tipo == "Zinfandel"){
+			imagem_tipo_vinho.src = "./imagens/tipos-vinho/zinfandel.png"
+			tipo_uva.innerHTML = `Zinfandel`;
+			tipo_vinho.innerHTML = `<b>Tipo:</b> Rosé`;
+			temperatura_servico.innerHTML = `<b>Temperatura de Serviço:</b> 8ºC a 12ºC`;
+			harmonizacao_vinho.innerHTML = `<b>Harmonização:</b> Saladas, carnes brancas, frutos do mar, queijos leves, churrasco e comidas de verão.`;
+		} else if(tipo == "Cava"){
+			imagem_tipo_vinho.src = "./imagens/tipos-vinho/cava.png"
+			tipo_uva.innerHTML = `Cava`;
+			tipo_vinho.innerHTML = `<b>Tipo:</b> Espumante`;
+			temperatura_servico.innerHTML = `<b>Temperatura de Serviço:</b> 5ºC a 10ºC`;
+			harmonizacao_vinho.innerHTML = `<b>Harmonização:</b> Aperitivos, frutos do mar, canapés, queijos suaves e sobremesas leves.`;
+		}
+
+		modal.style = "display: flex";
+	}
+
+	function controle_temperatura(){
+		var modal_controle = document.getElementById("modal_controle_adega")
+		var closeModal = document.getElementById("fechar_modal_adega");
+
+		closeModal.style = "display: flex";
+		modal_controle.style = "display: flex";
+	}
+
+	function fechar_modais(){
+		var modal_tipos = document.getElementById("modal_tipo_vinhos");
+		var modal_controle = document.getElementById("modal_controle_adega")
+
+		modal_tipos.style = "display: none";
+		modal_controle.style = "display: none";
+	}
+
+	window.addEventListener('click', (e) => {
+		var modal_tipos = document.getElementById("modal_tipo_vinhos");
+		var modal_controle = document.getElementById("modal_controle_adega")
+		if (e.target == modal_tipos || e.target == modal_controle) {
+
+		fechar_modais()
+		}
+	}
+	)
 </script>
