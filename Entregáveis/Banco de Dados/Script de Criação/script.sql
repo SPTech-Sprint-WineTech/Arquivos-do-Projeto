@@ -13,6 +13,17 @@ email varchar(50) not null unique,
 senha varchar(70) not null
 );
 
+create table usuario(
+idUsuario int auto_increment,
+fkEmpresa int,
+nome varchar(45) not null,
+telefoneCell varchar(14) not null,
+email varchar(50) not null,
+senha varchar(70) not null,
+constraint fkUser foreign key (fkEmpresa) references empresa(idEmpresa),
+primary key (idUsuario, fkEmpresa) 
+);
+
 create table vinicola(
 idVinicola int primary key auto_increment,
 nomeVinicola varchar(45) not null,
@@ -21,12 +32,13 @@ constraint fkEmp foreign key (fkEmpresa) references empresa(idEmpresa)
 );
 
 create table enderecoVinicola(
-idEnderecoVinicola int primary key auto_increment,
+idEnderecoVinicola int auto_increment,
+fkVinicola int,
 CEP char(9) not null,
 numero int not null,
 complemento varchar(70),
-fkVinicola int not null,
-constraint fkVin foreign key (fkVinicola) references vinicola(idVinicola)
+constraint fkVin foreign key (fkVinicola) references vinicola(idVinicola), 
+primary key (idEnderecoVinicola, fkVinicola)
 );
 
 create table adega(
@@ -60,10 +72,10 @@ constraint fkAdeg foreign key (fkAdega) references adega(idAdega)
 
 create table dadosSensor(
 idDadosSensor int auto_increment,
+fkSensor int,
 umidade float not null,
 temperatura float not null,
 dataHora datetime default current_timestamp,
-fkSensor int,
 constraint fkSense foreign key (fkSensor) references sensor(idSensor),
 primary key(idDadosSensor, fkSensor) 
 );
@@ -73,6 +85,10 @@ primary key(idDadosSensor, fkSensor)
 insert into empresa (nomeEmpresa, responsavel, telefoneResponsavel, CNPJ, email, senha)
 values ('XV de Novembro', 'Adriano', '1234567890', '123456789012345678', 'xvnovembro@contato.com', 'senhaXYZ'),
        ('Goes', 'Rodrigo Goes', '9876543210', '987654321098765432', 'goes@gmail.com', 'senhaABC');
+       
+insert into usuario (fkEmpresa, nome, telefoneCell, email, senha)
+values (1, 'Júlio', '11996131411', 'julio@gmail.com', '01101011011011'),
+	   (2, 'Pablo', '11983412909', 'pablo1@yahoo.com', 'monza-oito-cilindros');
 
 insert into vinicola (nomeVinicola, fkEmpresa)
 values ('XV de Novembro', 1),
@@ -100,11 +116,13 @@ values (65.5, 15.0, 1),
 
 -- SCRIPT DE CONSULTA DE DADOS
 
-select nomeEmpresa as "Empresa Mãe", responsavel as Responsável, nomeVinicola as Vinícola, cep as CEP, idAdega as Sala 
-	from vinicola 
-		join empresa on fkEmpresa = idEmpresa
-			join enderecoVinicola on fkVinicola = idVinicola
-				join adega on adega.fkVinicola = idVinicola;
+select nomeEmpresa as "Empresa Mãe", responsavel as Responsável, nomeVinicola as Vinícola, cep as CEP, idAdega as Sala, usuario.nome as "Usuário", 
+	usuario.telefoneCell as "Telefone Celular" 
+		from vinicola 
+			join empresa on fkEmpresa = idEmpresa
+				join enderecoVinicola on fkVinicola = idVinicola
+					join adega on adega.fkVinicola = idVinicola
+						join usuario on usuario.fkEmpresa = idEmpresa;
                 
 select tipo as "Tipo do Vinho", tempMax, tempMin, umiMax, umiMin 
 	from adega 
