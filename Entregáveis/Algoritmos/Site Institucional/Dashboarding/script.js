@@ -1,28 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const arrowDownButton = document.getElementById("arrow-down-button");
-  const infoBox = document.getElementById("info-box");
-
-  arrowDownButton.addEventListener("click", function (e) {
-    e.stopPropagation();
-
-    if (infoBox.style.display === "block") {
-      infoBox.style.display = "none";
-    } else {
-      infoBox.style.display = "block";
-    }
-  });
-
-  document.addEventListener("click", function (e) {
-    if (infoBox.style.display === "block" && e.target !== infoBox) {
-      infoBox.style.display = "none";
-    }
-  });
-
-  infoBox.addEventListener("click", function (e) {
-    e.stopPropagation();
-  });
-});
-
 function verAdega01() {
   span_temperatura_estado_atual.innerHTML = "Saudável";
   span_umidade_estado_atual.innerHTML = "Saudável";
@@ -114,9 +89,7 @@ function verAdega01() {
       });
     }
   });
-
 }
-
 
 function verAdega02() {
   span_temperatura_estado_atual.innerHTML = "Crítico, diminua a temperatura!";
@@ -138,7 +111,7 @@ function verAdega02() {
     var canvas = document.createElement("canvas");
     canvas.id = index === 0 ? "grafico_temperatura" : "grafico_umidade";
     chartContainer.appendChild(canvas);
-    
+
     if (index === 0) {
       // Gráfico de Temperatura
       new Chart(canvas, {
@@ -211,7 +184,9 @@ function verAdega02() {
   });
 
   setTimeout(function () {
-    alert("Temperatura em estado crítico, diminua o quanto antes! \nUmidade em estado de alerta, cuidado!");
+    alert(
+      "Temperatura em estado crítico, diminua o quanto antes! \nUmidade em estado de alerta, cuidado!"
+    );
   }, 1000);
 }
 
@@ -231,3 +206,24 @@ function fechar_modal() {
   modal_graficos.style.display = "none";
 }
 
+function expandir_grafico(i) {
+  var grafico_clicado = i;
+  var grafico_temp = document.getElementById("chart_temp");
+  var grafico_umid = document.getElementById("chart_umid");
+  var kpi_temp = document.getElementById("kpi_temperatura");
+  var kpi_umid = document.getElementById("kpi_umidade");
+
+  if (grafico_clicado == `temp`) {
+    grafico_temp.style = "width: 100%";
+    grafico_umid.style = "display: none";
+    kpi_temp.style = "width: 100%";
+    kpi_umid.style = "display: none";
+  } else if (grafico_clicado == `umid`) {
+    grafico_temp.style = "display: none";
+    grafico_umid.style = "width: 100%";
+    kpi_temp.style = "display: none";
+    kpi_umid.style = "width: 100%";
+  } else {
+    alert(`erro`);
+  }
+}
