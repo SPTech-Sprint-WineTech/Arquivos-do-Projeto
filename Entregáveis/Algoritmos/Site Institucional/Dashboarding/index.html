@@ -9,14 +9,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+
     <div class="nav_bar">
+
       <div class="search">
         <input type="text" placeholder="Buscar" />
         <img src="./media/magnifying-glass 1.png" alt="lupa" width="30px" />
       </div>
+
       <div class="nav_opcoes">
+
         <img src="media/notification.png" width="30px" />
         <img src="media/bell.png" width="30px" />
+
         <div class="menu">
           <img src="media/Ellipse 8.svg" width="30px" />
           <img src="media/arrow-down.png" id="arrow-down-button" />
@@ -27,95 +32,143 @@
             <li>Log Out</li>
           </ul>
         </div>
+
       </div>
+
     </div>
+
+    <div class="kpi">
+      <p style="background-color: #43ba43; border-radius: 8px;">Ideal:<br>15°C<br>75%</p>
+      <p style="background-color: yellow; border-radius: 8px;">Alerta:<br>14°C - 16°C<br>74% - 76%</p>
+      <p style="background-color: red; border-radius: 8px;">Crítico:<br>12°C - 18°C <br>70% - 80%</p>
+    </div>
+
     <section class="tela_dados">
       <div class="secao_adegas">
+
         <div class="adega ativa" id="adega_01" onclick="verAdega01()">
+
           <div class="header_adega">
             <img src="./imagens/barril-nome-adega.png" class="icone_adega" />
             <h3>Adega 01</h3>
           </div>
+
           <div class="medicao_adega">
+
             <div class="temp_adega">
               <p>75%</p>
               <img src="./imagens/termometro-1.png" class="icone_temperatura" />
             </div>
+
             <div class="umid_adega">
-              <p>20C°</p>
+              <p>15°C</p>
               <img src="./imagens/termometro-5.png" class="icone_umidade" />
             </div>
+
           </div>
+
+          <div class="borda_adega_01"></div>
+
         </div>
+
         <div class="adega ativa" id="adega_02" onclick="verAdega02()">
+
           <div class="header_adega">
             <img src="./imagens/barril-nome-adega.png" class="icone_adega" />
             <h3>Adega 02</h3>
           </div>
+
           <div class="medicao_adega">
+
             <div class="temp_adega">
               <p>67%</p>
               <img src="./imagens/termometro-1.png" class="icone_temperatura" />
             </div>
+
             <div class="umid_adega">
-              <p>26C°</p>
+              <p>20°C</p>
               <img src="./imagens/termometro-5.png" class="icone_umidade" />
             </div>
+
           </div>
+
         </div>
+
         <div class="adega inativa" id="adega_03">
+
           <div class="header_adega">
             <img src="./imagens/barril-nome-adega.png" class="icone_adega" />
             <h3>Adega 03</h3>
           </div>
+
           <div class="medicao_adega">
+
             <div class="temp_adega">
               <p>0ºC</p>
               <img src="./imagens/termometro-1.png" class="icone_temperatura" />
             </div>
+
             <div class="umid_adega">
               <p>0%</p>
               <img src="./imagens/termometro-5.png" class="icone_umidade" />
             </div>
+
           </div>
+
         </div>
+
         <div class="adega inativa" id="adega_04">
+
           <div class="header_adega">
             <img src="./imagens/barril-nome-adega.png" class="icone_adega" />
             <h3>Adega 04</h3>
           </div>
+
           <div class="medicao_adega">
+
             <div class="temp_adega">
               <p>0ºC</p>
               <img src="./imagens/termometro-1.png" class="icone_temperatura" />
             </div>
+
             <div class="umid_adega">
               <p>0%</p>
               <img src="./imagens/termometro-5.png" class="icone_umidade" />
             </div>
+
           </div>
+
         </div>
+
         <div class="adega inativa" id="adega_05">
+
           <div class="header_adega">
             <img src="./imagens/barril-nome-adega.png" class="icone_adega" />
             <h3>Adega 05</h3>
           </div>
           <div class="medicao_adega">
+
             <div class="temp_adega">
               <p>0ºC</p>
               <img src="./imagens/termometro-1.png" class="icone_temperatura" />
             </div>
+
             <div class="umid_adega">
               <p>0%</p>
               <img src="./imagens/termometro-5.png" class="icone_umidade" />
             </div>
+
           </div>
+
         </div>
+
         <div class="adega inativa" id="adega_06">
+
           <div class="header_adega">
             <img src="./imagens/barril-nome-adega.png" class="icone_adega" />
             <h3>Adega 06</h3>
           </div>
+
           <div class="medicao_adega">
             <div class="temp_adega">
               <p>0ºC</p>
@@ -126,74 +179,108 @@
               <img src="./imagens/termometro-5.png" class="icone_umidade" />
             </div>
           </div>
+
         </div>
+
         <div class="adega inativa" id="adega_07">
+
           <div class="header_adega">
             <img src="./imagens/barril-nome-adega.png" class="icone_adega" />
             <h3>Adega 07</h3>
           </div>
+
           <div class="medicao_adega">
+
             <div class="temp_adega">
               <p>0ºC</p>
               <img src="./imagens/termometro-1.png" class="icone_temperatura" />
             </div>
+
             <div class="umid_adega">
               <p>0%</p>
               <img src="./imagens/termometro-5.png" class="icone_umidade" />
             </div>
+            
           </div>
+
         </div>
+
         <div class="adega inativa" id="adega_08">
+
           <div class="header_adega">
             <img src="./imagens/barril-nome-adega.png" class="icone_adega" />
             <h3>Adega 08</h3>
           </div>
+
           <div class="medicao_adega">
+
             <div class="temp_adega">
               <p>0ºC</p>
               <img src="./imagens/termometro-1.png" class="icone_temperatura" />
             </div>
+
             <div class="umid_adega">
               <p>0%</p>
               <img src="./imagens/termometro-5.png" class="icone_umidade" />
             </div>
+
           </div>
+
         </div>
+
         <div class="modal_graficos" id="modal_graficos">
+
           <div class="botao_fechar_modal">
             <button onclick="fechar_modal()" id="fechar_modal">x</button>
           </div>
+
           <div class="container_graficos">
+
             <div class="chart">
               <canvas id="grafico_temperatura"></canvas>
             </div>
+
             <div class="chart">
               <canvas id="grafico_umidade"></canvas>
             </div>
+
           </div>
+
           <div class="container_kpi">
-            <div class="kpi_temperatura">
-              <div class="dados_kpi">
-                <h1>Status Temperatura:</h1>
-                <p>Temperatura Ideal: 20C°</p>
-                <p>
-                  Temperatura Atual: <span id="span_temperatura_atual"></span>
-                </p>
-                <p>Estado: <span id="span_temperatura_estado_atual"></span></p>
+
+            <div class="container_kpi_temperatura">
+
+              <div class="kpi_temperatura">
+
+                <div class="dados_kpi">
+                  <h1>Status Temperatura:</h1>
+                  <h3>Atual: <span id="span_temperatura_atual"></span></h3>
+                  <p>Estado: <span id="span_temperatura_estado_atual"></span></p>
+                </div>
+
               </div>
+
             </div>
-            <div class="kpi_umidade">
-              <div class="dados_kpi">
-                <h1>Status Umidade:</h1>
-                <p>Umidade Ideal: 75 a 80%</p>
-                <p>Umidade Atual: <span id="span_umidade_atual"></span></p>
-                <p>Estado: <span id="span_umidade_estado_atual"></span></p>
+
+            <div class="container_kpi_umidade">
+
+              <div class="kpi_umidade">
+
+                <div class="dados_kpi">
+                  <h1>Status Umidade:</h1>
+                  <h3>Atual: <span id="span_umidade_atual"></span></h3>
+                  <p>Estado: <span id="span_umidade_estado_atual"></span></p>
+                </div>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </div>
     </section>
-    <!-- <main></main> -->
   </body>
 </html>

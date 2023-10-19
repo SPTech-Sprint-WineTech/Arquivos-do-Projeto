@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
 function verAdega01() {
   span_temperatura_estado_atual.innerHTML = "Saudável";
   span_umidade_estado_atual.innerHTML = "Saudável";
-  span_temperatura_atual.innerHTML = "20C°";
-  span_umidade_atual.innerHTML = "78%";
+  span_temperatura_atual.innerHTML = "15C°";
+  span_umidade_atual.innerHTML = "75%";
 
   var modal_graficos = document.getElementById("modal_graficos");
   modal_graficos.style.display = "flex";
@@ -116,25 +116,35 @@ function verAdega01() {
   });
 }
 
+// Função para fazer o background piscar
+function fazerBackgroundPiscar() {
+  var adega02 = document.getElementById("adega_02");
+  adega02.classList.add("pulsating-background");
+  // Outras ações que você deseja realizar ao fazer o background piscar
+}
+
+// Evento que chama a função quando a página é carregada
+window.onload = function () {
+  fazerBackgroundPiscar();
+};
+
+
 function verAdega02() {
-  span_temperatura_estado_atual.innerHTML = "Prejudicial";
-  span_umidade_estado_atual.innerHTML = "Prejudicial";
-  span_temperatura_atual.innerHTML = "26C°";
-  span_umidade_atual.innerHTML = "67%";
+  span_temperatura_estado_atual.innerHTML = "Crítico, diminua a temperatura!";
+  span_umidade_estado_atual.innerHTML = "Alerta, aumente a umidade";
+  span_temperatura_atual.innerHTML = "26°C";
+  span_umidade_atual.innerHTML = "73%";
 
   var modal_graficos = document.getElementById("modal_graficos");
   modal_graficos.style.display = "flex";
 
-  // Remova os gráficos existentes, se houver
   var existingCharts = modal_graficos.querySelectorAll(".chart canvas");
   existingCharts.forEach(function (chart) {
     chart.remove();
   });
 
-  // Selecione as divs com a classe "chart" dentro de "container_graficos"
   var chartContainers = document.querySelectorAll(".container_graficos .chart");
 
-  // Crie os gráficos Chart.js e insira nas divs correspondentes
   chartContainers.forEach(function (chartContainer, index) {
     var canvas = document.createElement("canvas");
     canvas.id = index === 0 ? "grafico_temperatura" : "grafico_umidade";
@@ -210,6 +220,8 @@ function verAdega02() {
       });
     }
   });
+
+  alert ("Temperatura em estado critíco, diminua ela o quanto antes! \nUmidade em estado de alerta, Tome cuidado!")
 }
 
 function fechar_modal() {

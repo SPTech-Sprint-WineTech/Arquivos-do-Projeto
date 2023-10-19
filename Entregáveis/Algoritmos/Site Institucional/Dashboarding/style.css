@@ -22,6 +22,23 @@ body {
   width: 100%;
   height: 10vh;
   padding: 3% 10% 2% 10%;
+  margin-bottom: 5px;
+}
+
+.kpi {
+  display: flex;
+  width: 79%;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  margin: 5px;
+}
+
+.kpi p {
+  width: 10%;
+  font-size: large;
+  color: black;
+  font-weight: 600;
 }
 
 .search {
@@ -229,20 +246,6 @@ body {
   align-items: center;
 }
 
-#grafico_temp img {
-  height: 335px;
-}
-
-#grafico_umid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#grafico_umid img {
-  height: 335px;
-}
-
 .modal_graficos {
   width: 100%;
   height: 100%;
@@ -251,23 +254,38 @@ body {
   display: none;
   border-radius: 5px;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1rem;
 }
 
 .container_graficos {
   width: 100%;
-  height: 40%;
+  height: 80%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  gap: 5rem;
+}
+
+.container_grafico_temperatura {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container_grafico_umidade {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .botao_fechar_modal {
   width: 100%;
   display: flex;
   justify-content: end;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 #fechar_modal {
@@ -294,10 +312,26 @@ body {
 
 .container_kpi {
   width: 100%;
-  height: 50%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 3%;
+  gap: 3rem;
+}
+
+.container_kpi_temperatura {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container_kpi_umidade {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dados_kpi {
@@ -305,7 +339,7 @@ body {
   flex-direction: column;
   text-align: center;
   width: 100%;
-  height: 80%;
+  height: 100%;
   padding: 3%;
   gap: 1rem;
   background-color: rgba(36, 32, 32, 0.582);
@@ -318,9 +352,25 @@ body {
 }
 
 .kpi_temperatura {
-  width: 31%;
+  width: 70%;
 }
 
 .kpi_umidade {
-  width: 31%;
+  width: 70%;
+}
+
+@keyframes backgroundPulse {
+  0% {
+    background-color: rgb(255, 0, 0); /* Defina a cor inicial que você deseja */
+  }
+  50% {
+    background-color: rgb(102, 0, 0); /* Defina uma cor intermediária */
+  }
+  100% {
+    background-color: rgb(255, 0, 0); /* Volte para a cor inicial */
+  }
+}
+
+.pulsating-background {
+  animation: backgroundPulse 2s infinite;
 }
