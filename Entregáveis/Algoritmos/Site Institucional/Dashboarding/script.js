@@ -114,6 +114,7 @@ function verAdega01() {
       });
     }
   });
+
 }
 
 
@@ -229,3 +230,4 @@ function fechar_modal() {
   var modal_graficos = document.getElementById("modal_graficos"); // substitua 'modal_graficos' pelo ID da sua div
   modal_graficos.style.display = "none";
 }
+

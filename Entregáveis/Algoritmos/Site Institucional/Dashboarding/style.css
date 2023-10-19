@@ -29,16 +29,64 @@ body {
   display: flex;
   width: 79%;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   text-align: center;
   margin: 5px;
 }
 
-.kpi p {
+.kpi_ideal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 20%;
+  border-radius: 8px;
+  border: 1px solid green;
+  padding: 1%;
+}
+
+.kpi_ideal img {
   width: 10%;
-  font-size: large;
-  color: black;
-  font-weight: 600;
+  height: 50px;
+}
+
+.texto_ideal {
+  display: flex;
+  flex-direction: column;
+}
+
+.kpi_alerta {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 20%;
+  border-radius: 8px;
+  border: 1px solid yellow;
+  padding: 1%;
+}
+
+.kpi_alerta img {
+  width: 10%;
+  height: 50px;
+}
+
+.kpi_critico {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 20%;
+  border: 1px solid red;
+  border-radius: 8px;
+  padding: 1%;
+}
+
+.texto_critico {
+  display: flex;
+  flex-direction: column;
+}
+
+.kpi_critico img {
+  width: 10%;
+  height: 50px;
 }
 
 .search {
@@ -375,4 +423,11 @@ body {
 
 .pulsating-background {
   animation: backgroundPulse 2s infinite;
+}
+
+#expandir_grafico_temperatura,
+#expandir_grafico_umidade {
+  /* Estilos para os gráficos expandidos */
+  width: 100%;
+  height: 100%;
 }
