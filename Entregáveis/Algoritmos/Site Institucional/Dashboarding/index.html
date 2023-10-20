@@ -45,11 +45,13 @@
       </div>
 
       <div class="kpi_alerta">
-        <div class="texto_alerta">
+
+        <div class="texto_kpi_alerta">
           <h3>Alerta:</h3>
           <p>13°C e 17°C</p>
           <p>72% e 78%</p>
         </div>
+
         <img src="imagens/termometroAmarelo.png" />
         <img src="imagens/2gota.png" />
         <img src="imagens/4gota.png" />
@@ -68,7 +70,7 @@
     </div>
 
     <section class="tela_dados">
-      <div class="secao_adegas">
+      <div class="secao_adegas" id="card_adegas">
         <div class="adega ativa" id="adega_01" onclick="verAdega01()">
           <div class="header_adega">
             <img src="./imagens/barril-nome-adega.png" class="icone_adega" />
@@ -265,17 +267,40 @@
             </div>
 
             <div class="container_kpi_umidade">
+
               <div class="kpi_umidade" id="kpi_umidade">
+
                 <div class="dados_kpi">
                   <h1>Status Umidade:</h1>
                   <h3>Atual: <span id="span_umidade_atual"></span></h3>
                   <p>Estado: <span id="span_umidade_estado_atual"></span></p>
                 </div>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
+
       </div>
+
+      <div class="modal_alerta" id="modal_alerta">
+
+        <div class="botao_fechar_modal">
+          <button id="fechar_alerta" onclick="fechar_modal_alerta ()">x</button>
+        </div>
+
+        <div class="texto_alerta">
+          <h1><img src="imagens/alerta.png"> ALERTA CRITÍCO <img src="imagens/alerta.png"></h1> <br>
+          <h2>Temperatura muito acima do ideal</h2> <br>
+          <h2>Umidade pouco abaixo do ideal</h2> <br>
+          <h3>PERDA NA SAFRA IMINENTE</h3>
+        </div>
+
+      </div>
+
     </section>
   </body>
 </html>

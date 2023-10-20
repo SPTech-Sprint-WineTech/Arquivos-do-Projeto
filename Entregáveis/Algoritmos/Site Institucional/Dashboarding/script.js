@@ -1,3 +1,17 @@
+function fechar_modal() {
+  var modal_graficos = document.getElementById("modal_graficos"); // substitua 'modal_graficos' pelo ID da sua div
+  modal_graficos.style.display = "none";
+}
+
+window.onload = function () {
+  fazerBackgroundPiscar();
+};
+
+function fazerBackgroundPiscar() {
+  var adega02 = document.getElementById("adega_02");
+  adega02.classList.add("pulsating-background");
+}
+
 function verAdega01() {
   span_temperatura_estado_atual.innerHTML = "Saudável";
   span_umidade_estado_atual.innerHTML = "Saudável";
@@ -183,27 +197,32 @@ function verAdega02() {
     }
   });
 
-  setTimeout(function () {
-    alert(
-      "Temperatura em estado crítico, diminua o quanto antes! \nUmidade em estado de alerta, cuidado!"
-    );
-  }, 1000);
+  mostrarAlertaAposTempo();
 }
 
-// Função para fazer o background piscar
-function fazerBackgroundPiscar() {
-  var adega02 = document.getElementById("adega_02");
-  adega02.classList.add("pulsating-background");
+function mostrarAlertaAposTempo() {
+  setTimeout(mostrarModalAlerta, 1000);
 }
 
-// Evento que chama a função quando a página é carregada
-window.onload = function () {
-  fazerBackgroundPiscar();
-};
+function mostrarModalAlerta() {
+  var modal_alerta = document.getElementById("modal_alerta");
+  var modal_graficos = document.getElementById("modal_graficos");
+  var card_adegas = document.getElementById("card_adegas");
 
-function fechar_modal() {
-  var modal_graficos = document.getElementById("modal_graficos"); // substitua 'modal_graficos' pelo ID da sua div
+
+  modal_alerta.style.display = "flex";
   modal_graficos.style.display = "none";
+  card_adegas.style.display = "none";
+}
+
+function fechar_modal_alerta() {
+  var modal_alerta = document.getElementById("modal_alerta");
+  var modal_graficos = document.getElementById("modal_graficos");
+  var card_adegas = document.getElementById("card_adegas")
+
+  modal_alerta.style.display = "none";
+  modal_graficos.style.display = "flex";
+  card_adegas.style.display = "flex";
 }
 
 function expandir_grafico(i) {
