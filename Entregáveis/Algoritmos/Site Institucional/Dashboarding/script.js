@@ -1,18 +1,22 @@
-function fechar_modal() {
-  var modal_graficos = document.getElementById("modal_graficos"); // substitua 'modal_graficos' pelo ID da sua div
+function fechar_modal_graficos() {
+  var modal_graficos = document.getElementById("modal_graficos");
+  var card_adegas = document.getElementById("card_adegas")
   modal_graficos.style.display = "none";
+  card_adegas.style.display = "flex";
+
 }
 
+//Fazer o card em alerta piscar assim que a página carregar
 window.onload = function () {
-  fazerBackgroundPiscar();
+  background_piscando();
 };
 
-function fazerBackgroundPiscar() {
+function background_piscando() {
   var adega02 = document.getElementById("adega_02");
   adega02.classList.add("pulsating-background");
 }
 
-function verAdega01() {
+function ver_adega_01() {
   span_temperatura_estado_atual.innerHTML = "Saudável";
   span_umidade_estado_atual.innerHTML = "Saudável";
   span_temperatura_atual.innerHTML = "15C°";
@@ -21,17 +25,19 @@ function verAdega01() {
   var modal_graficos = document.getElementById("modal_graficos");
   modal_graficos.style.display = "flex";
 
-  var existingCharts = modal_graficos.querySelectorAll(".chart canvas");
-  existingCharts.forEach(function (chart) {
+  var charts_existentes = modal_graficos.querySelectorAll(".chart canvas");
+  charts_existentes.forEach(function (chart) {
     chart.remove();
   });
 
-  var chartContainers = document.querySelectorAll(".container_graficos .chart");
+  var chart_containers = document.querySelectorAll(
+    ".container_graficos .chart"
+  );
 
-  chartContainers.forEach(function (chartContainer, index) {
+  chart_containers.forEach(function (chart_container, index) {
     var canvas = document.createElement("canvas");
     canvas.id = index === 0 ? "grafico_temperatura" : "grafico_umidade";
-    chartContainer.appendChild(canvas);
+    chart_container.appendChild(canvas);
 
     if (index === 0) {
       // Gráfico de Temperatura
@@ -43,8 +49,8 @@ function verAdega01() {
             {
               label: "Temperatura",
               data: [19, 20, 19, 20, 21, 20],
-              backgroundColor: "red",
-              borderColor: "red",
+              backgroundColor: "green",
+              borderColor: "green",
               borderWidth: 2,
             },
           ],
@@ -77,8 +83,8 @@ function verAdega01() {
             {
               label: "Umidade",
               data: [70, 71, 73, 71, 75, 78],
-              backgroundColor: "blue",
-              borderColor: "blue",
+              backgroundColor: "green",
+              borderColor: "green",
               borderWidth: 2,
             },
           ],
@@ -105,7 +111,29 @@ function verAdega01() {
   });
 }
 
-function verAdega02() {
+function mostrar_modal_alerta() {
+  var modal_alerta = document.getElementById("modal_alerta");
+  var modal_graficos = document.getElementById("modal_graficos");
+  var card_adegas = document.getElementById("card_adegas");
+
+  modal_alerta.style.display = "flex";
+  modal_graficos.style.display = "none";
+  card_adegas.style.display = "none";
+}
+
+function fechar_modal_alerta() {
+  var modal_alerta = document.getElementById("modal_alerta");
+  var modal_graficos = document.getElementById("modal_graficos");
+  var card_adegas = document.getElementById("card_adegas");
+
+  modal_alerta.style.display = "none";
+  modal_graficos.style.display = "flex";
+  card_adegas.style.display = "flex";
+
+  ver_adega_02();
+}
+
+function ver_adega_02() {
   span_temperatura_estado_atual.innerHTML = "Crítico, diminua a temperatura!";
   span_umidade_estado_atual.innerHTML = "Alerta, aumente a umidade";
   span_temperatura_atual.innerHTML = "26°C";
@@ -114,17 +142,17 @@ function verAdega02() {
   var modal_graficos = document.getElementById("modal_graficos");
   modal_graficos.style.display = "flex";
 
-  var existingCharts = modal_graficos.querySelectorAll(".chart canvas");
-  existingCharts.forEach(function (chart) {
+  var charts_existentes = modal_graficos.querySelectorAll(".chart canvas");
+  charts_existentes.forEach(function (chart) {
     chart.remove();
   });
 
-  var chartContainers = document.querySelectorAll(".container_graficos .chart");
+  var chart_containers = document.querySelectorAll(".container_graficos .chart");
 
-  chartContainers.forEach(function (chartContainer, index) {
+  chart_containers.forEach(function (chart_container, index) {
     var canvas = document.createElement("canvas");
     canvas.id = index === 0 ? "grafico_temperatura" : "grafico_umidade";
-    chartContainer.appendChild(canvas);
+    chart_container.appendChild(canvas);
 
     if (index === 0) {
       // Gráfico de Temperatura
@@ -169,9 +197,9 @@ function verAdega02() {
           datasets: [
             {
               label: "Umidade",
-              data: [60, 65, 62, 64, 61, 67],
-              backgroundColor: "blue",
-              borderColor: "blue",
+              data: [74, 72, 74, 73, 71, 73],
+              backgroundColor: "yellow",
+              borderColor: "yellow",
               borderWidth: 2,
             },
           ],
@@ -196,33 +224,6 @@ function verAdega02() {
       });
     }
   });
-
-  mostrarAlertaAposTempo();
-}
-
-function mostrarAlertaAposTempo() {
-  setTimeout(mostrarModalAlerta, 1000);
-}
-
-function mostrarModalAlerta() {
-  var modal_alerta = document.getElementById("modal_alerta");
-  var modal_graficos = document.getElementById("modal_graficos");
-  var card_adegas = document.getElementById("card_adegas");
-
-
-  modal_alerta.style.display = "flex";
-  modal_graficos.style.display = "none";
-  card_adegas.style.display = "none";
-}
-
-function fechar_modal_alerta() {
-  var modal_alerta = document.getElementById("modal_alerta");
-  var modal_graficos = document.getElementById("modal_graficos");
-  var card_adegas = document.getElementById("card_adegas")
-
-  modal_alerta.style.display = "none";
-  modal_graficos.style.display = "flex";
-  card_adegas.style.display = "flex";
 }
 
 function expandir_grafico(i) {

@@ -15,9 +15,9 @@ body {
   color: white;
 }
 
+/* Cabeçalho */
 .nav_bar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 10vh;
@@ -25,13 +25,43 @@ body {
   margin-bottom: 5px;
 }
 
-.kpi {
+.nav_opcoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 15%;
+}
+
+.buscar {
+  width: 21%;
+  border: 2px solid rgb(84, 84, 84);
+  border-radius: 30px;
+  background: rgba(142, 142, 142, 0.22);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.buscar input {
+  background-color: rgba(142, 142, 142, 0);
+  border: none;
+  color: white;
+}
+
+.buscar input::after {
+  border: none;
+}
+
+.menu ul {
+  display: none;
+}
+
+/* KPI Início */
+.container_kpi_inicio {
   display: flex;
   width: 79%;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   text-align: center;
-  margin: 5px;
 }
 
 .kpi_ideal {
@@ -69,6 +99,16 @@ body {
   height: 50px;
 }
 
+.texto_alerta {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 75%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .kpi_critico {
   display: flex;
   flex-direction: row;
@@ -89,36 +129,7 @@ body {
   height: 50px;
 }
 
-.search {
-  width: 250px;
-  border: 2px solid rgb(84, 84, 84);
-  border-radius: 30px;
-  background: rgba(142, 142, 142, 0.22);
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.search input {
-  background-color: rgba(142, 142, 142, 0);
-  border: none;
-  color: white;
-}
-
-.search input::after {
-  border: none;
-}
-
-.menu ul {
-  display: none;
-}
-
-.nav_opcoes {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 18%;
-}
-
+/* Seção de cards das Adegas */
 .tela_dados {
   margin: 1% 10% 2% 10%;
   width: 80%;
@@ -139,11 +150,6 @@ body {
   flex-wrap: wrap;
 }
 
-.ativa:hover {
-  background-color: rgba(0, 0, 0, 0.308);
-  cursor: pointer;
-}
-
 .adega {
   display: flex;
   flex-direction: column;
@@ -159,6 +165,11 @@ body {
 
 .ativa {
   background-color: rgba(13, 13, 13, 0.85);
+}
+
+.ativa:hover {
+  background-color: rgba(0, 0, 0, 0.308);
+  cursor: pointer;
 }
 
 .inativa {
@@ -181,17 +192,19 @@ body {
   width: 100%;
 }
 
-.icone_adega {
-  width: 20%;
-  margin-right: 1%;
-}
 .header_adega h3 {
   font-weight: normal;
 }
 
 .icone_adega {
+  width: 20%;
+  margin-right: 1%;
+}
+
+.icone_adega {
   size: 10px;
 }
+
 .medicao_adega {
   display: flex;
   justify-content: space-evenly;
@@ -227,74 +240,23 @@ body {
   height: 70px;
 }
 
-.secao_sensores {
-  width: 100%;
-  height: 100%;
-  display: none;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  padding: 2%;
-  font-size: 30px;
+@keyframes backgroundPulse {
+  0% {
+    background-color: rgb(68, 0, 0); /* Defina a cor inicial que você deseja */
+  }
+  50% {
+    background-color: rgb(102, 0, 0); /* Defina uma cor intermediária */
+  }
+  100% {
+    background-color: rgb(68, 0, 0); /* Defina a cor inicial que você deseja */
+  }
 }
 
-.sensores {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+.pulsating-background {
+  animation: backgroundPulse 2s infinite;
 }
 
-.sensor_temperatura {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  width: 48%;
-  height: fit-content;
-  padding: 2% 0;
-  font-size: 20px;
-}
-
-.sensor_umidade {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  width: 48%;
-  padding: 2% 0;
-  font-size: 20px;
-}
-
-.grafico_sensor {
-  margin-top: 2%;
-  height: 250px;
-}
-
-.secao_grafico {
-  width: 100%;
-  height: 100%;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2%;
-  font-size: 30px;
-}
-
-.graficos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-#grafico_temp {
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
+/* Modal de exibição dos gráficos */
 
 .modal_graficos {
   width: 100%;
@@ -339,7 +301,7 @@ body {
   gap: 1rem;
 }
 
-#fechar_modal {
+#fechar_modal_graficos {
   width: 50px;
   height: 28px;
   background-color: rgba(36, 32, 32, 0.582);
@@ -351,7 +313,7 @@ body {
   margin-right: 10px;
 }
 
-#fechar_modal:hover {
+#fechar_modal_graficos:hover {
   cursor: pointer;
   background-color: rgba(255, 0, 0, 0.459);
 }
@@ -361,14 +323,14 @@ body {
   height: 100%;
 }
 
-.container_kpi {
+.container_kpi_modal {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 3%;
   gap: 3rem;
+  margin-bottom: 3%;
 }
 
 .container_kpi_temperatura {
@@ -390,7 +352,7 @@ body {
   flex-direction: column;
   text-align: center;
   width: 100%;
-  height: 100%;
+  height: 80%;
   padding: 3%;
   gap: 1rem;
   background-color: rgba(36, 32, 32, 0.582);
@@ -410,29 +372,13 @@ body {
   width: 70%;
 }
 
-@keyframes backgroundPulse {
-  0% {
-    background-color: rgb(68, 0, 0); /* Defina a cor inicial que você deseja */
-  }
-  50% {
-    background-color: rgb(102, 0, 0); /* Defina uma cor intermediária */
-  }
-  100% {
-    background-color: rgb(68, 0, 0); /* Defina a cor inicial que você deseja */
-  }
-}
-
-.pulsating-background {
-  animation: backgroundPulse 2s infinite;
-}
-
 #expandir_grafico_temperatura,
 #expandir_grafico_umidade {
-  /* Estilos para os gráficos expandidos */
   width: 100%;
   height: 100%;
 }
 
+/* Modal de alerta */
 .modal_alerta {
   width: 100%;
   height: 100%;
@@ -440,6 +386,7 @@ body {
   position: absolute;
   display: none;
   border-radius: 5px;
+  border: solid red 3px;
   flex-direction: column;
   gap: 1rem;
   z-index: 2;
@@ -460,18 +407,4 @@ body {
 #fechar_alerta:hover {
   cursor: pointer;
   background-color: rgba(255, 0, 0, 0.459);
-}
-
-.texto_alerta {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 50%;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.texto_alerta img {
-  width: 10%;
 }

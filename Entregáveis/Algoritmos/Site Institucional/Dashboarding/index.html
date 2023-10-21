@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,31 +9,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+
+    <!--Cabeçalho-->
     <div class="nav_bar">
-      <div class="search">
+      <div class="buscar">
         <input type="text" placeholder="Buscar" />
-        <img src="./media/magnifying-glass 1.png" alt="lupa" width="30px" />
-      </div>
-
-      <div class="nav_opcoes">
-        <img src="media/notification.png" width="30px" />
-        <img src="media/bell.png" width="30px" />
-
-        <div class="menu">
-          <img src="media/Ellipse 8.svg" width="30px" />
-          <img src="media/arrow-down.png" id="arrow-down-button" />
-          <ul>
-            <li>Perfil</li>
-            <li>Dashboard</li>
-            <li>Análise</li>
-            <li>Log Out</li>
-          </ul>
-        </div>
+        <img src="./imagens/lupa.png" width="30px" />
       </div>
     </div>
 
-    <div class="kpi">
+    <!--KPI do início da Dashboarding-->
+    <div class="container_kpi_inicio">
       <div class="kpi_ideal">
+
         <div class="texto_ideal">
           <h3>Ideal:</h3>
           <p>15°C</p>
@@ -70,9 +58,10 @@
     </div>
 
     <section class="tela_dados">
+
       <div class="secao_adegas" id="card_adegas">
 
-        <div class="adega ativa" id="adega_01" onclick="verAdega01()">
+        <div class="adega ativa" id="adega_01" onclick="ver_adega_01()">
 
           <div class="header_adega">
             <img src="./imagens/barril-nome-adega.png" class="icone_adega" />
@@ -98,7 +87,7 @@
           
         </div>
 
-        <div class="adega ativa" id="adega_02" onclick="verAdega02()">
+        <div class="adega ativa" id="adega_02" onclick="mostrar_modal_alerta()">
 
           <div class="header_adega">
             <img src="./imagens/barril-nome-adega.png" class="icone_adega" />
@@ -262,7 +251,7 @@
         <div class="modal_graficos" id="modal_graficos">
 
           <div class="botao_fechar_modal">
-            <button onclick="fechar_modal()" id="fechar_modal">x</button>
+            <button onclick="fechar_modal_graficos()" id="fechar_modal_graficos">x</button>
           </div>
 
           <div class="container_graficos">
@@ -277,18 +266,16 @@
 
           </div>
 
-          <div class="container_kpi">
+          <div class="container_kpi_modal">
 
             <div class="container_kpi_temperatura">
 
               <div class="kpi_temperatura" id="kpi_temperatura">
 
-                <div class="dados_kpi">
+                <div class="dados_kpi temperatura">
                   <h1>Status Temperatura:</h1>
                   <h3>Atual: <span id="span_temperatura_atual"></span></h3>
-                  <p>
-                    Estado: <span id="span_temperatura_estado_atual"></span>
-                  </p>
+                  <p>Estado: <span id="span_temperatura_estado_atual"></span></p>
                 </div>
 
               </div>
@@ -299,7 +286,7 @@
 
               <div class="kpi_umidade" id="kpi_umidade">
 
-                <div class="dados_kpi">
+                <div class="dados_kpi umidade">
                   <h1>Status Umidade:</h1>
                   <h3>Atual: <span id="span_umidade_atual"></span></h3>
                   <p>Estado: <span id="span_umidade_estado_atual"></span></p>
@@ -325,7 +312,7 @@
           <h1><img src="imagens/alerta.png"> ALERTA CRITÍCO <img src="imagens/alerta.png"></h1> <br>
           <h2>Temperatura muito acima do ideal</h2> <br>
           <h2>Umidade pouco abaixo do ideal</h2> <br>
-          <h3>PERDA NA SAFRA IMINENTE</h3>
+          <h3>PREJUÍZO IMINENTE NA SAFRA</h3>
         </div>
 
       </div>
