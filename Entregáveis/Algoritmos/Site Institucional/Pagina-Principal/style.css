@@ -4,6 +4,10 @@
 	font-family: "Montserrat";
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 ::-webkit-scrollbar {
 	width: 8px;
 }
@@ -403,6 +407,7 @@ body {
 #controle_vinhos .secao_controle .wine-item:hover {
 	width: 18%;
 	cursor: pointer;
+	transition: 0.5s;
 }
 
 #controle_vinhos .secao_controle .wine-item:hover img {

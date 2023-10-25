@@ -19,17 +19,32 @@ body {
 .nav_bar {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 10vh;
   padding: 3% 10% 2% 10%;
   margin-bottom: 5px;
 }
 
-.nav_opcoes {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 15%;
+
+.botao_home {
+  border-radius: 25px;
+  padding: 1%;
+  cursor: pointer;
+}
+
+.botao_home a {
+  text-decoration: none;
+  color: #FFF;
+  padding: 15%;
+  border-radius: 25px;
+}
+
+.botao_home a:hover {
+  cursor: pointer;
+  color: #000;
+  transition: 1s;
+  background-color: #FFF;
 }
 
 .buscar {
@@ -87,6 +102,7 @@ body {
 .kpi_alerta {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-evenly;
   width: 20%;
   border-radius: 8px;
