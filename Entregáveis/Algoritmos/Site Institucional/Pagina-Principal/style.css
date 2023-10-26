@@ -18,6 +18,10 @@
 	border-radius: 10px;
 }
 
+html{
+	scroll-behavior: smooth;
+}
+
 body {
 	background-image: url("./imagens/red-wine\ 1.png");
 	background-size: contain;
