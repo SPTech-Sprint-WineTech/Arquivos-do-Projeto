@@ -16,38 +16,25 @@ body {
 }
 
 header {
-	width: 100%;
 	display: flex;
 	align-items: center;
 	text-align: center;
 	height: 18%;
-	justify-content: center;
 }
 
-#container_logo {
-	width: 25%;
+picture {
+	width: 100%;
 }
 
 #logo {
-	margin-top: 0.5%;
-	width: 30%;
-}
-
-#container_link {
-	width: 25%;
-	
+	width: 8%;
+	height: auto;
+	margin-top: 1%;
 }
 
 #ancora_home {
+	margin-right: 25%;
 	text-decoration: none;
-	padding: 3%;
-	border-radius: 25px;
-}
-
-#ancora_home:hover {
-	background-color: #730217;
-	border: solid 1px #FFF;
-	transition: 1s;
 }
 main {
 	height: 82%;
@@ -64,11 +51,10 @@ main {
 	height: 80%;
 	margin: 0 auto;
 	width: 30%;
-	text-align: center;
 }
 
 .campo_de_dados {
-	width: 93%;
+	width: 100%;
 	padding: 2% 4%;
 	margin: 6px auto;
 	border: 1px solid #211e1e;
@@ -81,11 +67,11 @@ main {
 }
 .campo_de_dados::placeholder {
 	font-size: 12px;
-	color: #685e59;
+	color: 59514d;
 }
 
 #botao_cadastrar {
-	width: 101%;
+	width: 108%;
 	padding: 10px;
 	margin: 5px auto;
 	border: none;
