@@ -1,0 +1,31 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body{
+	width: 100vw;
+	height: 100vh;
+	/* background-color: black; */
+}
+.tela_graficos {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+#dht11Umidade {
+	width: 30%;
+	margin: 2%;
+}
+
+#lm35Temperatura {
+	width: 30%;
+	margin: 2%;
+}
+
+
+canvas {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
