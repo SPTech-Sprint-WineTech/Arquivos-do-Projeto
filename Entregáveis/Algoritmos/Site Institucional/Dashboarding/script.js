@@ -137,7 +137,7 @@ function ver_adega_02() {
   span_temperatura_estado_atual.innerHTML = "Crítico, diminua a temperatura!";
   span_umidade_estado_atual.innerHTML = "Alerta, aumente a umidade";
   span_temperatura_atual.innerHTML = "26°C";
-  span_umidade_atual.innerHTML = "73%";
+  span_umidade_atual.innerHTML = "67%";
 
   var modal_graficos = document.getElementById("modal_graficos");
   modal_graficos.style.display = "flex";
@@ -198,8 +198,8 @@ function ver_adega_02() {
             {
               label: "Umidade",
               data: [74, 72, 74, 73, 71, 73],
-              backgroundColor: "yellow",
-              borderColor: "yellow",
+              backgroundColor: "red",
+              borderColor: "red",
               borderWidth: 2,
             },
           ],
