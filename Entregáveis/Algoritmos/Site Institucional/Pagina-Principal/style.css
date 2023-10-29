@@ -18,6 +18,10 @@
 	border-radius: 10px;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	background-image: url("./imagens/red-wine\ 1.png");
 	background-size: contain;
@@ -132,6 +136,7 @@ body {
 	font-weight: bold;
 	z-index: 2;
 }
+
 #fechar_modal_simulador:hover {
 	cursor: pointer;
 }
@@ -145,6 +150,10 @@ body {
 	top: 68vh;
 	padding-right: 0%;
 	padding-bottom: 0%;
+}
+
+#bottle:hover {
+	cursor: pointer;
 }
 
 #bottle img {
@@ -189,12 +198,22 @@ body {
 	font-size: 22px;
 	white-space: nowrap;
 	overflow: hidden;
-	animation: typewriter 2s steps(50);
+	<<<<<<< HEAD animation: typewriter 2s steps(50);
 	font-family: "Dancing Script";
 	color: black;
 }
 
-.inputLine {
+=======animation: typewriter 1.5s steps(50);
+font-family: "Dancing Script";
+color: black;
+}
+
+.textLine span {
+	font-family: "Dancing Script";
+	color: #730217;
+}
+
+>>>>>>>323ef1e27e26bc3cfe5222c45f7bf01ed4cd9d29 .inputLine {
 	display: flex;
 	justify-content: start;
 	align-items: center;
@@ -205,7 +224,11 @@ body {
 	outline: none;
 	background-color: transparent;
 	font-size: 22px;
+	<<<<<<< HEAD font-family: "Dancing Script";
+	=======font-weight: bold;
 	font-family: "Dancing Script";
+	color: #730217;
+	>>>>>>>323ef1e27e26bc3cfe5222c45f7bf01ed4cd9d29
 }
 
 /* Modal da Seção Controle de Adegas */
@@ -261,6 +284,7 @@ body {
 	font-weight: bold;
 	z-index: 2;
 }
+
 #fechar_modal_adega:hover {
 	cursor: pointer;
 }
@@ -323,6 +347,11 @@ body {
 	cursor: pointer;
 }
 
+#header .midias .login:active {
+	background-color: #260101;
+	border: 1px solid #260101;
+}
+
 #intro {
 	display: flex;
 	justify-content: center;
@@ -353,12 +382,10 @@ body {
 	border: none;
 	color: white;
 	border-radius: 12px;
-	background: linear-gradient(
-		94deg,
-		rgba(97, 2, 19, 1) 0%,
-		rgba(70, 31, 38, 0.5) 50.52%,
-		rgba(65, 29, 36, 0) 100%
-	);
+	background: linear-gradient(94deg,
+			rgba(97, 2, 19, 1) 0%,
+			rgba(70, 31, 38, 0.5) 50.52%,
+			rgba(65, 29, 36, 0) 100%);
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 	padding: 10px 80px;
 	font-size: 12px;
@@ -366,22 +393,18 @@ body {
 }
 
 #intro .saiba_mais:hover {
-	background: linear-gradient(
-		94deg,
-		rgba(97, 2, 19, 0.5) 0%,
-		rgba(70, 31, 38, 0.25) 50.52%,
-		rgba(65, 29, 36, 0) 100%
-	);
+	background: linear-gradient(94deg,
+			rgba(97, 2, 19, 0.5) 0%,
+			rgba(70, 31, 38, 0.25) 50.52%,
+			rgba(65, 29, 36, 0) 100%);
 	cursor: pointer;
 }
 
 #intro .saiba_mais:active {
-	background: linear-gradient(
-		94deg,
-		rgba(97, 2, 19, 0.25) 0%,
-		rgba(70, 31, 38, 0) 50.52%,
-		rgba(65, 29, 36, 0) 100%
-	);
+	background: linear-gradient(94deg,
+			rgba(97, 2, 19, 0.25) 0%,
+			rgba(70, 31, 38, 0) 50.52%,
+			rgba(65, 29, 36, 0) 100%);
 }
 
 #sobre_nos {
@@ -519,7 +542,8 @@ body {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	width: 100%; /* Largura da área da imagem */
+	width: 100%;
+	/* Largura da área da imagem */
 }
 
 #comentarios .secao_comentarios .imagens_comentario img {
@@ -613,6 +637,7 @@ body {
 	font-weight: 400;
 	font-style: normal;
 }
+
 #simulador .secao_simulador .sobre_simulator p span {
 	color: #bf9460;
 	font-weight: 500;
@@ -830,16 +855,19 @@ body {
 	height: 80%;
 	margin: 10% 0;
 }
+
 .footer .footer_box .mapa_site h3 {
 	font-size: 22px;
 	font-weight: 600;
 	letter-spacing: 1px;
 }
+
 .footer .footer_box .mapa_site a {
 	text-decoration: none;
 	color: white;
 	font-weight: 500;
 }
+
 .footer .footer_box .footer_contato {
 	display: flex;
 	flex-direction: column;
@@ -848,11 +876,13 @@ body {
 	width: 30%;
 	height: 90%;
 }
+
 .footer .footer_box .footer_contato h3 {
 	font-size: 24px;
 	font-weight: 600;
 	letter-spacing: 1px;
 }
+
 .footer .footer_box .footer_contato p {
 	font-size: 14px;
 	margin-bottom: 3px;
@@ -899,6 +929,7 @@ body {
 		padding-right: 5.9%;
 		top: 65vh;
 	}
+
 	100% {
 		padding-right: 40%;
 		top: -194.5vh;
@@ -910,6 +941,7 @@ body {
 		width: 4.5%;
 		height: auto;
 	}
+
 	100% {
 		width: 42.8%;
 		height: auto;
@@ -921,6 +953,7 @@ body {
 		padding-right: 40%;
 		top: -194.5vh;
 	}
+
 	100% {
 		padding-right: 8.9%;
 		top: 65vh;
@@ -932,6 +965,7 @@ body {
 		width: 42.8%;
 		height: auto;
 	}
+
 	100% {
 		width: 4.5%;
 		height: auto;
@@ -942,6 +976,7 @@ body {
 	from {
 		width: 0%;
 	}
+
 	to {
 		width: 100%;
 	}

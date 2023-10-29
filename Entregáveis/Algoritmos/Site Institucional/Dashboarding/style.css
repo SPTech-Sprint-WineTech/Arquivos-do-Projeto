@@ -17,6 +17,7 @@ body {
 
 /* Cabeçalho */
 .nav_bar {
+<<<<<<< HEAD
 	display: flex;
 	align-items: center;
 	width: 100%;
@@ -30,6 +31,36 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	width: 15%;
+=======
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 10vh;
+  padding: 3% 10% 2% 10%;
+  margin-bottom: 5px;
+}
+
+
+.botao_home {
+  border-radius: 25px;
+  padding: 1%;
+  cursor: pointer;
+}
+
+.botao_home a {
+  text-decoration: none;
+  color: #FFF;
+  padding: 15%;
+  border-radius: 25px;
+}
+
+.botao_home a:hover {
+  cursor: pointer;
+  color: #000;
+  transition: 1s;
+  background-color: #FFF;
+>>>>>>> 323ef1e27e26bc3cfe5222c45f7bf01ed4cd9d29
 }
 
 .buscar {
@@ -85,6 +116,7 @@ body {
 }
 
 .kpi_alerta {
+<<<<<<< HEAD
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
@@ -92,6 +124,16 @@ body {
 	border-radius: 8px;
 	border: 1px solid yellow;
 	padding: 1%;
+=======
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 20%;
+  border-radius: 8px;
+  border: 1px solid yellow;
+  padding: 1%;
+>>>>>>> 323ef1e27e26bc3cfe5222c45f7bf01ed4cd9d29
 }
 
 .kpi_alerta img {
