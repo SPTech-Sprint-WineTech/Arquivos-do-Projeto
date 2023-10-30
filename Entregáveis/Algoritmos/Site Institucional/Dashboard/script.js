@@ -149,17 +149,10 @@ function fechar_modal_alerta() {
 }
 
 function ver_adega_02() {
-<<<<<<< HEAD
-	span_temperatura_estado_atual.innerHTML = "Crítico, diminua a temperatura!";
-	span_umidade_estado_atual.innerHTML = "Alerta, aumente a umidade";
-	span_temperatura_atual.innerHTML = "26°C";
-	span_umidade_atual.innerHTML = "73%";
-=======
   span_temperatura_estado_atual.innerHTML = "Crítico, diminua a temperatura!";
   span_umidade_estado_atual.innerHTML = "Alerta, aumente a umidade";
   span_temperatura_atual.innerHTML = "26°C";
   span_umidade_atual.innerHTML = "67%";
->>>>>>> 323ef1e27e26bc3cfe5222c45f7bf01ed4cd9d29
 
 	var modal_graficos = document.getElementById("modal_graficos");
 	modal_graficos.style.display = "flex";
@@ -178,78 +171,6 @@ function ver_adega_02() {
 		canvas.id = index === 0 ? "grafico_temperatura" : "grafico_umidade";
 		chart_container.appendChild(canvas);
 
-<<<<<<< HEAD
-		if (index === 0) {
-			// Gráfico de Temperatura
-			new Chart(canvas, {
-				type: "line",
-				data: {
-					labels: ["12:00", "12:01", "12:02", "12:03", "12:04", "12:05"],
-					datasets: [
-						{
-							label: "Temperatura",
-							data: [23, 22, 24, 25, 23, 26],
-							backgroundColor: "red",
-							borderColor: "red",
-							borderWidth: 2,
-						},
-					],
-				},
-				options: {
-					scales: {
-						x: {
-							grid: {
-								color: "rgba(255, 255, 255, 0.212)",
-							},
-						},
-						y: {
-							suggestedMin: 0,
-							suggestedMax: 40,
-							stepSize: 10,
-							grid: {
-								color: "rgba(255, 255, 255, 0.212)",
-							},
-						},
-					},
-				},
-			});
-		} else {
-			// Gráfico de Umidade
-			new Chart(canvas, {
-				type: "line",
-				data: {
-					labels: ["12:00", "12:01", "12:02", "12:03", "12:04", "12:05"],
-					datasets: [
-						{
-							label: "Umidade",
-							data: [74, 72, 74, 73, 71, 73],
-							backgroundColor: "yellow",
-							borderColor: "yellow",
-							borderWidth: 2,
-						},
-					],
-				},
-				options: {
-					scales: {
-						x: {
-							grid: {
-								color: "rgba(255, 255, 255, 0.212)",
-							},
-						},
-						y: {
-							suggestedMin: 50,
-							suggestedMax: 100,
-							stepSize: 10,
-							grid: {
-								color: "rgba(255, 255, 255, 0.212)",
-							},
-						},
-					},
-				},
-			});
-		}
-	});
-=======
     if (index === 0) {
       // Gráfico de Temperatura
       new Chart(canvas, {
@@ -320,7 +241,6 @@ function ver_adega_02() {
       });
     }
   });
->>>>>>> 323ef1e27e26bc3cfe5222c45f7bf01ed4cd9d29
 }
 
 function expandir_grafico(i) {
@@ -337,19 +257,18 @@ function expandir_grafico(i) {
 		grafico_temp.style = "display: flex";
 		grafico_temp.style = "justify-content: center";
 		grafico_umid.style = "display: none";
-		kpi_temp.style = "";
-		kpi_umid.style = "display: none";
-		container_kpi_temp.style = "";
+		container_kpi_temp.style = "display: flex";
+		// container_kpi_temp.style = "width: 100%;";
 		container_kpi_umid.style = "display: none";
-	} else if (grafico_clicado == `umid`) {
+	}
+	else if (grafico_clicado == `umid`) {
+		container_kpi_temp.style = "display: none;";
+		container_kpi_umid.style = "display: flex;";
+		// container_kpi_umid.style = "width: 100%;";
 		grafico_temp.style = "display: none";
 		grafico_umid.style = "width: 100%";
 		grafico_umid.style = "display: flex";
 		grafico_umid.style = "justify-content: center";
-		kpi_temp.style = "display: none";
-		kpi_umid.style = "";
-		container_kpi_temp.style = "display: none";
-		container_kpi_umid.style = "";
 	} else {
 		alert(`erro`);
 	}

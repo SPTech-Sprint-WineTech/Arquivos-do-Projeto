@@ -198,12 +198,7 @@ body {
 	font-size: 22px;
 	white-space: nowrap;
 	overflow: hidden;
-	<<<<<<< HEAD animation: typewriter 2s steps(50);
-	font-family: "Dancing Script";
-	color: black;
-}
-
-=======animation: typewriter 1.5s steps(50);
+	animation: typewriter 1.5s steps(50);
 font-family: "Dancing Script";
 color: black;
 }
@@ -213,7 +208,7 @@ color: black;
 	color: #730217;
 }
 
->>>>>>>323ef1e27e26bc3cfe5222c45f7bf01ed4cd9d29 .inputLine {
+.inputLine {
 	display: flex;
 	justify-content: start;
 	align-items: center;
@@ -224,11 +219,9 @@ color: black;
 	outline: none;
 	background-color: transparent;
 	font-size: 22px;
-	<<<<<<< HEAD font-family: "Dancing Script";
-	=======font-weight: bold;
+	font-weight: bold;
 	font-family: "Dancing Script";
 	color: #730217;
-	>>>>>>>323ef1e27e26bc3cfe5222c45f7bf01ed4cd9d29
 }
 
 /* Modal da Seção Controle de Adegas */
@@ -706,7 +699,7 @@ color: black;
 #fale_conosco .contato_formulario {
 	display: flex;
 	justify-content: space-evenly;
-	align-items: center;
+	align-items: end;
 	width: 98%;
 }
 
@@ -766,7 +759,7 @@ color: black;
 	margin-right: 2.5%;
 }
 
-#fale_conosco .contato_formulario .formulario input {
+#fale_conosco .contato_formulario .input {
 	width: 90%;
 	height: 30px;
 	margin: 1.5%;
