@@ -27,7 +27,7 @@
 	 var prejuizoCorrigido = (prejuizoTotal).toFixed(0);
 	 var calcAmortizacao = (custoTotal / prejuizoTotal);
 	 var tempoAmortizacao = Math.round(calcAmortizacao);
-	 var manutencao = (prejuizoTotal * 0.2572);
+	 var manutencao = (custoTotal * 0.2572);
 	 var manutencaoCorrigida = (manutencao).toFixed(0);
 
 		focus32();
