@@ -27,27 +27,25 @@ primary key (idUsuario, fkEmpresa)
 create table vinicola(
 idVinicola int primary key auto_increment,
 nomeVinicola varchar(45) not null,
-fkEmpresa int not null,
+fkEmpresa int,
 constraint fkEmp foreign key (fkEmpresa) references empresa(idEmpresa)
 );
 
 create table enderecoVinicola(
-idEnderecoVinicola int auto_increment,
+idEnderecoVinicola int primary key auto_increment,
 fkVinicola int,
 CEP char(9) not null,
 numero int not null,
 complemento varchar(70),
-constraint fkVin foreign key (fkVinicola) references vinicola(idVinicola), 
-primary key (idEnderecoVinicola, fkVinicola)
+constraint fkVin foreign key (fkVinicola) references vinicola(idVinicola)
 );
 
 create table adega(
 idAdega int primary key auto_increment,
-tempMax float not null,
-tempMin float not null,
-umiMax float not null,
-umiMin float not null,
-fkVinicola int not null,
+nomeAdega varchar(45) not null,
+tempIdeal decimal(4, 2) not null,
+umiIdeal decimal(4, 2) not null,
+fkVinicola int,
 constraint fkVini foreign key (fkVinicola) references vinicola(idVinicola)
 );
 
@@ -57,7 +55,7 @@ tipo varchar(45) not null,
 safra varchar(45),
 tipoBarril varchar(45),
 dataArmazenamento datetime default current_timestamp,
-fkAdega int not null,
+fkAdega int,
 constraint fkAdega foreign key (fkAdega) references adega(idAdega)
 );
 
@@ -66,15 +64,14 @@ idSensor int primary key auto_increment,
 tipoSensor varchar(5) not null,
 sensorLoc varchar(50) not null,
 constraint chkSensor check(tipoSensor in ('LM35', 'DHT11')),
-fkAdega int not null,
+fkAdega int,
 constraint fkAdeg foreign key (fkAdega) references adega(idAdega)
 );
 
 create table dadosSensor(
 idDadosSensor int auto_increment,
 fkSensor int,
-umidade float not null,
-temperatura float not null,
+registro decimal(4,2),
 dataHora datetime default current_timestamp,
 constraint fkSense foreign key (fkSensor) references sensor(idSensor),
 primary key(idDadosSensor, fkSensor) 
@@ -83,51 +80,60 @@ primary key(idDadosSensor, fkSensor)
 -- SCRIPT DE INSERÇÃO DE REGISTRO
 
 insert into empresa (nomeEmpresa, responsavel, telefoneResponsavel, CNPJ, email, senha)
-values ('XV de Novembro', 'Adriano', '1234567890', '123456789012345678', 'xvnovembro@contato.com', 'senhaXYZ'),
-       ('Goes', 'Rodrigo Goes', '9876543210', '987654321098765432', 'goes@gmail.com', 'senhaABC');
+values ('XV de Novembro', 'Adriano', '1234567890', '123456789012345678', 'xvnovembro@contato.com', 'senhaXYZ');
        
 insert into usuario (fkEmpresa, nome, telefoneCell, email, senha)
-values (1, 'Júlio', '11996131411', 'julio@gmail.com', '01101011011011'),
-	   (2, 'Pablo', '11983412909', 'pablo1@yahoo.com', 'monza-oito-cilindros');
+values 	(1, 'xvdenovembrosr', '11996131411', 'xvdenovembro@gmail.com', '01101011011011');
 
 insert into vinicola (nomeVinicola, fkEmpresa)
-values ('XV de Novembro', 1),
-       ('Vinicola Goes', 2);
+values 	('XV de Novembro - SR', 1);
 
 insert into enderecoVinicola (CEP, numero, complemento, fkVinicola)
-values ('12345-678', 123, null, 1),
-       ('54321-987', 456, null, 2);
+values 	('12345-678', 123, null, 1);
 
-insert into adega (tempMax, tempMin, umiMax, umiMin, fkVinicola)
-values (18.0, 10.0, 75.0, 50.0, 1), 
-       (20.0, 12.0, 80.0, 55.0, 2);
+insert into adega (nomeAdega, tempIdeal, umiIdeal, fkVinicola)
+values ('Adega Leão', 15.00, 75.00, 1), 
+       ('Adega Rosê', 15.0, 75.00, 1);
 
 insert into tipoVinho (tipo, safra, tipoBarril, fkAdega)
 values('Cabernet Sauvignon', '2020', 'Carvalho Francês', 1), 
-       ('Chardonnay', '2019', 'Carvalho Americano', 2);
+       ('Chardonnay', '2019', 'Carvalho Americano', 1),
+       ('Prosecco', '2021', 'Carvalho Americano', 2),
+       ('Pinot Noir', '2018', 'Carvalho Francês', 2);
 
 insert into sensor (tipoSensor, sensorLoc, fkAdega)
 values ('LM35', 'LocalA', 1),
+       ('DHT11', 'LocalA', 1),
+       ('LM35', 'LocalB', 2),
        ('DHT11', 'LocalB', 2); 
 
-insert into dadosSensor (umidade, temperatura, fkSensor)
-values (65.5, 15.0, 1),
-       (70.0, 14.5, 2);
+insert into dadosSensor (fkSensor, registro, dataHora)
+values (1, 15.00, '2023-10-31 12:05:00'),
+       (2, 75.00, '2023-10-31 12:05:00'),
+       (3, 26.00, '2023-10-31 12:05:00'),
+       (4, 67.00, '2023-10-31 12:05:00');
 
 -- SCRIPT DE CONSULTA DE DADOS
 
-select nomeEmpresa as "Empresa Mãe", responsavel as Responsável, nomeVinicola as Vinícola, cep as CEP, idAdega as Sala, usuario.nome as "Usuário", 
-	usuario.telefoneCell as "Telefone Celular" 
+select nomeEmpresa as "Empresa Mãe", responsavel as Responsável, nomeVinicola as Vinícola, nomeAdega as Adega 
 		from vinicola 
 			join empresa on fkEmpresa = idEmpresa
 				join enderecoVinicola on fkVinicola = idVinicola
 					join adega on adega.fkVinicola = idVinicola
 						join usuario on usuario.fkEmpresa = idEmpresa;
+                        
+select nomeEmpresa as "Empresa Mãe", usuario.nome as "User", telefoneCell as "Telefone Vinícola" 
+	from empresa 
+		join usuario on idEmpresa = fkEmpresa;
                 
-select tipo as "Tipo do Vinho", tempMax, tempMin, umiMax, umiMin 
+select nomeVinicola as 'Vinícola', nomeAdega as Adega, tipo as "Tipo do Vinho" 
 	from adega 
-		join tipoVinho on fkAdega = idAdega;
+		join tipoVinho on fkAdega = idAdega
+			join vinicola on fkVinicola = idVinicola;
 
-select idSensor, tipoSensor as Modelo, sensorLoc as "Localização do Sensor", umidade as Umidade, temperatura as Temperatura, dataHora as "Data e Hora" 
+select nomeVinicola as Vinícola, nomeAdega as Adega, tipoSensor as "Modelo Sensor", sensorLoc as "Localização do Sensor", 
+Registro, dataHora as "Data e Hora" 
 	from sensor
-		join dadosSensor on fkSensor = idSensor;
+		join dadosSensor on fkSensor = idSensor
+			join adega on fkAdega = idAdega
+				join vinicola on fkVinicola = idVinicola;
