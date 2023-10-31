@@ -97,7 +97,7 @@ function ver_adega_01() {
 					datasets: [
 						{
 							label: "Umidade",
-							data: [70, 71, 73, 71, 75, 78],
+							data: [70, 71, 73, 71, 75, 75],
 							backgroundColor: "green",
 							borderColor: "green",
 							borderWidth: 2,
@@ -214,7 +214,7 @@ function ver_adega_02() {
           datasets: [
             {
               label: "Umidade",
-              data: [74, 72, 74, 73, 71, 73],
+              data: [74, 72, 74, 73, 71, 67],
               backgroundColor: "red",
               borderColor: "red",
               borderWidth: 2,
