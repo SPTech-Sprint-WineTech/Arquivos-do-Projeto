@@ -6,18 +6,19 @@ body{
 	width: 100vw;
 	height: 100vh;
 	/* background-color: black; */
+	background-position: cover;
 }
 .tela_graficos {
 	display: flex;
-	width: 50%;
-	height: auto;
+	width: 100%;
+	height: 600px;
 }
 
 .grafico {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
-	height: auto;
+	width: 800%;
+	height: 400px;
 }
 
 #dht11Umidade {
