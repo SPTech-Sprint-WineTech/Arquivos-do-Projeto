@@ -63,7 +63,7 @@ function ver_adega_01() {
 					datasets: [
 						{
 							label: "Temperatura",
-							data: [19, 20, 19, 20, 21, 20],
+							data: [14, 14, 15, 14, 15, 15],
 							backgroundColor: "green",
 							borderColor: "green",
 							borderWidth: 2,
