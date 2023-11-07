@@ -8,12 +8,14 @@
 body {
 	background-color: black;
 }
+
 #logo {
 	width: 10%;
 	height: auto;
 	margin-top: 4%;
 	margin-left: 26%;
 }
+
 #video_de_fundo {
 	height: 115vh;
 	width: 50%;
