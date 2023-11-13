@@ -14,8 +14,9 @@ void setup(){
 
 //Função que será executada continuamente
 void loop(){
-  temperatura = (float(analogRead(LM35))*5/(1023))/0.01;
-  float umidade = dht_1.readHumidity();
+  temperatura = (float(analogRead(LM35))*5/((1023))/0.01)- 12;
+  float umidade = dht_1.readHumidity()+16;
+  
   //float temperatura2 = dht_1.readTemperature();
   //Serial.print("Temperatura: ");
   if(isnan(umidade)){
@@ -30,5 +31,5 @@ void loop(){
     //Serial.println(temperatura2);
     //Serial.print(" °C");
   }
-    delay(2000);
+    delay(1000);
 }
