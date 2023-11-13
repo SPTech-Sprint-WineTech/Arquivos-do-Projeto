@@ -14,8 +14,8 @@
 	</head>
 	<body>
 		<header>
-			<div id="botao_voltar">
-				<img src="../Cadastro/imagens/Captura_de_tela_2023-11-10_090710-removebg-preview.png" alt="seta para voltar à tela login" onclick="">
+			<div class="botao_voltar">
+				<img src="./imagens/voltar.png" alt="seta para voltar à tela login" onclick="toLogin()">
 			</div>
 			<picture>
 				<a href="../Pagina-Principal/index.html">
@@ -47,8 +47,13 @@
 					type="text"
 					class="campo_de_dados"
 					placeholder="Confirmar senha" />
-				<button onclick="cadastrar ()" id="botao_cadastrar">Cadastrar</button>
+				<button onclick="cadastrar()" id="botao_cadastrar">Cadastrar</button>
 			</div>
 		</main>
 	</body>
+	<script>
+		function toLogin(){
+			window.location.href='../login/index.html';
+		}
+	</script>
 </html>

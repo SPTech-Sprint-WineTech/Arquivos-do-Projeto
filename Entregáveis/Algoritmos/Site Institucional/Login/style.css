@@ -9,6 +9,27 @@ body {
 	background-color: black;
 }
 
+.botao_voltar{
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 5%;
+	left: 2%;
+	height: 40px;
+	width: 40px;
+	border-radius: 5px;
+	/* border: 1px solid #211e1e;
+	background-color: #131212; */
+}
+.botao_voltar:hover{
+	cursor: pointer;
+}
+.botao_voltar img{
+	height: 35px;
+	filter: invert(100%);
+}
+
 #logo {
 	width: 10%;
 	height: auto;

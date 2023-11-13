@@ -14,3 +14,8 @@ function logar() {
     }
 
 }
+
+
+function toHome(){
+    window.location.href='../Pagina-Principal/index.html';
+}
