@@ -7,7 +7,7 @@
 ::-webkit-scrollbar {
 	width: 8px;
 }
-
+ 
 ::-webkit-scrollbar-track {
 	box-shadow: inset 0 0 5px #797979;
 	border-radius: 10px;

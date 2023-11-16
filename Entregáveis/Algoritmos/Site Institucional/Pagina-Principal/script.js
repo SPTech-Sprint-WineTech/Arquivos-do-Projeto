@@ -9,7 +9,7 @@
 	var randomVinhos = ['Cabernet Sauvignon', 'Chardonnay', 'Rosé de Provence', 'Prosecco', 'Pinot Noir', 'Sauvignon Blanc', 'Zinfandel', 'Cava'];
 	var tipo_vinho = randomVinhos[randomNumber];
 	var tamanhoSala;
-	var quantBarris;
+	var quantBarris; 
 	var precoVinho;
 
 	//Variavel que acompanha o botao enter para ser acionada a funcao apenas quando o simulador estiver aberto
