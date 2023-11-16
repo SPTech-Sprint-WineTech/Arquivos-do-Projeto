@@ -17,9 +17,11 @@ create table usuario(
 idUsuario int auto_increment,
 fkEmpresa int,
 nome varchar(45) not null,
-telefoneCell varchar(14) not null,
+telefoneCel varchar(14) not null,
 email varchar(50) not null,
 senha varchar(70) not null,
+validacao tinyint(1),
+constraint chkValidacao check(validacao in(0, 1)),
 constraint fkUser foreign key (fkEmpresa) references empresa(idEmpresa),
 primary key (idUsuario, fkEmpresa) 
 );
@@ -79,10 +81,10 @@ primary key(idDadosSensor, fkSensor)
 
 -- SCRIPT DE INSERÇÃO DE REGISTRO
 
-insert into empresa (nomeEmpresa, responsavel, telefoneResponsavel, CNPJ, email, senha)
+/* insert into empresa (nomeEmpresa, responsavel, telefoneResponsavel, CNPJ, email, senha)
 values ('XV de Novembro', 'Adriano', '1234567890', '123456789012345678', 'xvnovembro@contato.com', 'senhaXYZ');
        
-insert into usuario (fkEmpresa, nome, telefoneCell, email, senha)
+insert into usuario (fkEmpresa, nome, telefoneCel, email, senha)
 values 	(1, 'xvdenovembrosr', '11996131411', 'xvdenovembro@gmail.com', '01101011011011');
 
 insert into vinicola (nomeVinicola, fkEmpresa)
@@ -122,7 +124,7 @@ select nomeEmpresa as "Empresa Mãe", responsavel as Responsável, nomeVinicola 
 					join adega on adega.fkVinicola = idVinicola
 						join usuario on usuario.fkEmpresa = idEmpresa;
                         
-select nomeEmpresa as "Empresa Mãe", usuario.nome as "User", telefoneCell as "Telefone Vinícola" 
+select nomeEmpresa as "Empresa Mãe", usuario.nome as "User", telefoneCel as "Telefone Vinícola" 
 	from empresa 
 		join usuario on idEmpresa = fkEmpresa;
                 
@@ -136,4 +138,10 @@ Registro, dataHora as "Data e Hora"
 	from sensor
 		join dadosSensor on fkSensor = idSensor
 			join adega on fkAdega = idAdega
-				join vinicola on fkVinicola = idVinicola;
+				join vinicola on fkVinicola = idVinicola; */
+                
+insert into empresa (nomeEmpresa, responsavel, telefoneResponsavel, cnpj, email, senha) 
+values ('WineTech', 'admin', '11-9000000000', '000000000000000000', 'admin@winetech.com', 'saoroque');
+
+insert into usuario (fkEmpresa, nome, telefoneCel, email, senha)
+values (1, 'admin', '11-9100000000', 'useradmin@gmail.com', 'adminadmin');
