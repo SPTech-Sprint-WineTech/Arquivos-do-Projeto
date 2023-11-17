@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Login - WineTech</title>
+  <link rel="icon" href="../Pagina-Principal/imagens/Logo/Logo Wine Tech NoBG.png">
+</head>
+
+<body>
+  <video autoplay muted loop id="video_de_fundo">
+    <source src="Imagens/pexels-kindel-media-8093236 (1080p).mp4" type="video/mp4">
+  </video>
+
+  <header>
+    <div class="botao_voltar">
+      <img src="./imagens/voltar.png" alt="seta para voltar à tela login" onclick="toHome()">
+    </div>
+    <figure>
+      <a href="../Pagina-Principal/index.html">
+        <img src="Imagens/logo-wine-tech-versao-white-1.png" alt="Logo da empresa" id="logo" />
+      </a>
+    </figure>
+  </header>
+
+  <main>
+    <h1>Bem-vindo à WineTech</h1>
+
+    <h2>Faça login para acessar sua conta</h2>
+
+    <h3>Nome de Usuário</h3>
+    <input type="text" id="username" class="campos_de_entrada" placeholder="Digite seu usuário">
+    <h3>Senha</h3>
+    <input type="password" id="password" class="campos_de_entrada" placeholder="Digite sua senha">
+
+    <!-- <h4><a href="#">Esqueceu sua senha?</a></h4> -->
+
+    <button onclick="logar()" id="botao_logar">Login</button>
+
+    <h5>Não tem uma conta? <a href="../Cadastro/index.html" id="ancora_cadastro">Crie agora!</a></h4>
+  </main>
+</body>
+
+</html>
+
+<script src="script.js">
+</script>
