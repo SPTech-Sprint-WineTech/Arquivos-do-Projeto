@@ -1,0 +1,276 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #373737;
+    color: #FFF;
+}
+
+header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 50rem;
+}
+
+.nome_adega {
+    padding: 2px;
+    border-bottom: solid 1px #FFF;
+}
+
+.container_menu {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    gap: 1rem;
+}
+
+.container_menu i {
+    font-size: 18px;
+}
+
+.ph-list {
+    transition: transform 0.5s ease;
+}
+
+.container_menu i:hover {
+    cursor: pointer;
+}
+.container_geral {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+.container_kpis {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 1%;
+}
+
+.kpis {
+    background-color: #666464;
+    height: 60px;
+    width: 200px;
+    padding: 2%;
+    border: solid 1px #FFF;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0px 2px 15px 0px #000;
+}
+
+.kpis h3 {
+    font-size: 16px;
+}
+
+.container_ocorrencias {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.container_painel {
+    width: 45%;
+    height: 100%;
+    border: solid 1px #FFF;
+}
+
+.titulo_ocorrencias {
+    background-color: #373737;
+    padding: 1px;
+    border-bottom: solid 1px #FFF;
+}
+
+.painel_ocorrencias {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.info_ocorrencias {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.ocorrencias {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 25%;
+    padding: 1px;
+    border-left: solid 1px #FFF;
+    height: 98.5%;
+    gap: 3rem;
+    background-color: #666464;
+}
+
+.texto_ocorrencias {
+    border-bottom: solid 1px #FFF;
+    width: 95%;
+    padding: 5px;
+}
+
+.ocorrencias span {
+    font-size: 25px;
+}
+
+.container_grafico_ocorrencia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    border: solid 1px #FFF;
+    gap: 1rem;
+    background-color: #666464;
+}
+
+.container_grafico_ocorrencia h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-bottom: solid 1px #FFF;
+    text-align: center;
+    height: 29px;
+    background-color: #373737;
+}
+
+.container_3 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 180px;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+
+.container_grafico_velo {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 100%;
+    border: solid 1px #FFF;
+    background-color: #666464;
+}
+
+.container_grafico_velo h3 {
+    background-color: #373737;
+}
+
+.container_grafico_velo canvas {
+    width: 99%;
+    height: 99%;
+}
+
+.texto_grafico_velo {
+    width: 99.5%;
+    padding: 1px;
+    border-bottom: solid 1px #FFF;
+}
+
+.container_chamados {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 100%;
+    border: solid 1px #FFF;
+    text-align: center;
+    align-items: center;
+}
+
+.container_chamados h3 {
+    border-bottom: solid 1px #FFF;
+    width: 100%;
+}
+
+.container_graficos_chamados {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    background-color: #666464;
+}
+
+.graficos_chamados {
+    display: flex;
+    flex-direction: row;
+    height: 150px;
+    width: 45%;
+    justify-content: center;
+    margin-left: 20px;
+    align-items: center;
+}
+
+.graficos_chamados canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.container_menu_bar {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    background-color: #8D8D8D;
+    height: 92.3vh;
+    width: 15%;
+    transition: display 1s ease;
+}
+
+.container_itens_menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+select {
+
+}
+
+.div_sair {
+    width: 80%;
+    padding: 1%;
+    border: solid 1px #FFF;
+    border-radius: 25px;
+}
+
+.div_sair:hover {
+    cursor: pointer;
+    background-color: #00000073;
+    transition: 1s;
+}
+
+.img_perfil {
+    display: flex;
+    align-items: center;
+    border-radius: 75px;
+    background-color: #D9D9D9;
+}
+
+a {
+    text-decoration: none;
+    color: #FFF;
+}
