@@ -50,15 +50,13 @@ header {
 .fechar_menu {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    width: 50%;
+    justify-content: right;
+    width: 100%;
     height: 25px;
+    margin-right: 50px;
 }
 
 .fechar_menu:hover {
-    background-color: red;
-    border-radius: 25px;
-    transition: 2s ease;
     cursor: pointer;
 }
 
