@@ -66,7 +66,7 @@ header {
 .container_geral {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: space-between;
 }
 
@@ -146,8 +146,9 @@ header {
 
 .texto_ocorrencias {
   border-bottom: solid 1px #4A4949;
-  width: 95%;
-  padding: 5px;
+  font-size: 12px;
+  width: 100%;
+  padding: 1%;
 }
 
 .ocorrencias span {
@@ -228,6 +229,7 @@ header {
 .container_chamados h3 {
   border-bottom: solid 1px #4A4949;
   width: 99%;
+  height: 100%;
   padding: 1%;
 }
 
