@@ -109,13 +109,14 @@ header {
 .container_painel {
   width: 45%;
   height: 100%;
-  border: solid 1px #666464;
 }
 
 .titulo_ocorrencias {
   background-color: #373737;
+  width: 99.3%;
   padding: 1px;
   border-bottom: solid 1px #666464;
+  border: solid 1px #666464;
 }
 
 .painel_ocorrencias {
@@ -140,7 +141,7 @@ header {
   width: 25%;
   padding: 1px;
   border-left: solid 1px #4A4949;
-  height: 98.5%;
+  height: 100%;
   gap: 3rem;
   background-color: #666464;
 }
