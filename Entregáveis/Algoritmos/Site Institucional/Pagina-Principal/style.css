@@ -7,7 +7,7 @@
 ::-webkit-scrollbar {
 	width: 8px;
 }
-
+ 
 ::-webkit-scrollbar-track {
 	box-shadow: inset 0 0 5px #797979;
 	border-radius: 10px;
@@ -16,6 +16,10 @@
 ::-webkit-scrollbar-thumb {
 	background: #2a0008;
 	border-radius: 10px;
+}
+
+html {
+	scroll-behavior: smooth;
 }
 
 body {
@@ -132,6 +136,7 @@ body {
 	font-weight: bold;
 	z-index: 2;
 }
+
 #fechar_modal_simulador:hover {
 	cursor: pointer;
 }
@@ -194,9 +199,10 @@ body {
 	white-space: nowrap;
 	overflow: hidden;
 	animation: typewriter 1.5s steps(50);
-	font-family: "Dancing Script";
-	color: black;
+font-family: "Dancing Script";
+color: black;
 }
+
 .textLine span {
 	font-family: "Dancing Script";
 	color: #730217;
@@ -271,6 +277,7 @@ body {
 	font-weight: bold;
 	z-index: 2;
 }
+
 #fechar_modal_adega:hover {
 	cursor: pointer;
 }
@@ -368,12 +375,10 @@ body {
 	border: none;
 	color: white;
 	border-radius: 12px;
-	background: linear-gradient(
-		94deg,
-		rgba(97, 2, 19, 1) 0%,
-		rgba(70, 31, 38, 0.5) 50.52%,
-		rgba(65, 29, 36, 0) 100%
-	);
+	background: linear-gradient(94deg,
+			rgba(97, 2, 19, 1) 0%,
+			rgba(70, 31, 38, 0.5) 50.52%,
+			rgba(65, 29, 36, 0) 100%);
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 	padding: 10px 80px;
 	font-size: 12px;
@@ -381,22 +386,18 @@ body {
 }
 
 #intro .saiba_mais:hover {
-	background: linear-gradient(
-		94deg,
-		rgba(97, 2, 19, 0.5) 0%,
-		rgba(70, 31, 38, 0.25) 50.52%,
-		rgba(65, 29, 36, 0) 100%
-	);
+	background: linear-gradient(94deg,
+			rgba(97, 2, 19, 0.5) 0%,
+			rgba(70, 31, 38, 0.25) 50.52%,
+			rgba(65, 29, 36, 0) 100%);
 	cursor: pointer;
 }
 
 #intro .saiba_mais:active {
-	background: linear-gradient(
-		94deg,
-		rgba(97, 2, 19, 0.25) 0%,
-		rgba(70, 31, 38, 0) 50.52%,
-		rgba(65, 29, 36, 0) 100%
-	);
+	background: linear-gradient(94deg,
+			rgba(97, 2, 19, 0.25) 0%,
+			rgba(70, 31, 38, 0) 50.52%,
+			rgba(65, 29, 36, 0) 100%);
 }
 
 #sobre_nos {
@@ -534,13 +535,15 @@ body {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	width: 100%; /* Largura da área da imagem */
+	width: 100%;
+	/* Largura da área da imagem */
 }
 
 #comentarios .secao_comentarios .imagens_comentario img {
 	position: relative;
 	top: -10px;
 	width: 6%;
+	border-radius: 50px;
 }
 
 #comentarios .secao_comentarios .comentario {
@@ -628,6 +631,7 @@ body {
 	font-weight: 400;
 	font-style: normal;
 }
+
 #simulador .secao_simulador .sobre_simulator p span {
 	color: #bf9460;
 	font-weight: 500;
@@ -696,7 +700,7 @@ body {
 #fale_conosco .contato_formulario {
 	display: flex;
 	justify-content: space-evenly;
-	align-items: center;
+	align-items: end;
 	width: 98%;
 }
 
@@ -756,7 +760,7 @@ body {
 	margin-right: 2.5%;
 }
 
-#fale_conosco .contato_formulario .formulario input {
+#fale_conosco .contato_formulario .input {
 	width: 90%;
 	height: 30px;
 	margin: 1.5%;
@@ -845,16 +849,19 @@ body {
 	height: 80%;
 	margin: 10% 0;
 }
+
 .footer .footer_box .mapa_site h3 {
 	font-size: 22px;
 	font-weight: 600;
 	letter-spacing: 1px;
 }
+
 .footer .footer_box .mapa_site a {
 	text-decoration: none;
 	color: white;
 	font-weight: 500;
 }
+
 .footer .footer_box .footer_contato {
 	display: flex;
 	flex-direction: column;
@@ -863,11 +870,13 @@ body {
 	width: 30%;
 	height: 90%;
 }
+
 .footer .footer_box .footer_contato h3 {
 	font-size: 24px;
 	font-weight: 600;
 	letter-spacing: 1px;
 }
+
 .footer .footer_box .footer_contato p {
 	font-size: 14px;
 	margin-bottom: 3px;
@@ -914,6 +923,7 @@ body {
 		padding-right: 5.9%;
 		top: 65vh;
 	}
+
 	100% {
 		padding-right: 40%;
 		top: -194.5vh;
@@ -925,6 +935,7 @@ body {
 		width: 4.5%;
 		height: auto;
 	}
+
 	100% {
 		width: 42.8%;
 		height: auto;
@@ -936,6 +947,7 @@ body {
 		padding-right: 40%;
 		top: -194.5vh;
 	}
+
 	100% {
 		padding-right: 8.9%;
 		top: 65vh;
@@ -947,6 +959,7 @@ body {
 		width: 42.8%;
 		height: auto;
 	}
+
 	100% {
 		width: 4.5%;
 		height: auto;
@@ -957,6 +970,7 @@ body {
 	from {
 		width: 0%;
 	}
+
 	to {
 		width: 100%;
 	}
