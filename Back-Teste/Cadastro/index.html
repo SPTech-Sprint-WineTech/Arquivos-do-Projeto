@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="style.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+	<title>Cadastro - WineTech</title>
+	<link rel="icon" href="../Pagina-Principal/imagens/Logo/Logo Wine Tech NoBG.png">
+</head>
+
+<body>
+	<header>
+		<div class="botao_voltar">
+			<img src="./imagens/voltar.png" alt="seta para voltar à tela login" onclick="toLogin()">
+		</div>
+		<picture>
+			<a href="../Pagina-Principal/index.html">
+				<img src="imagens/logo-wine-tech-versao-white-1.png" alt="Logo da WineTech" id="logo" />
+			</a>
+		</picture>
+	</header>
+
+	<main>
+		<div id="tabela_de_cadastro">
+			<h1>Cadastre-se</h1>
+			<h2>Informe seus dados e crie uma senha</h2>
+			<input type="text" class="campo_de_dados" placeholder="Nome da Empresa"  id="nome_input"/>
+			<!-- <input type="text" class="campo_de_dados" placeholder="Responsável" id="input_responsavel"> -->
+			<input type="text" class="campo_de_dados" placeholder="Telefone Responsável" id="input_telefone_responsavel"/>
+			<input type="text" class="campo_de_dados" placeholder="CNPJ" id="cnpj_input"/>
+			<input type="text" class="campo_de_dados" placeholder="E-mail" id="email_input"/>
+			<input type="text" class="campo_de_dados" placeholder="Criar senha" id="senha_input"/>
+			<input type="text" class="campo_de_dados" placeholder="Confirmar senha" id="confirmacao_senha_input">
+			<button onclick="cadastrar()" id="botao_cadastrar">Cadastrar</button>
+		</div>
+	</main>
+</body>
+<script>
+	function toLogin() {
+		window.location.href = '../login/index.html';
+	}
+
+	function cadastrar() {
+		aguardar();
+
+		//Recupere o valor da nova input pelo nome do id
+		// Agora vá para o método fetch logo abaixo
+		var nomeVar = nome_input.value;
+		var emailVar = email_input.value;
+		var senhaVar = senha_input.value;
+		var confirmacaoSenhaVar = confirmacao_senha_input.value;
+		var empresaVar = listaEmpresas.value
+		var cnpjVar = input_cnpj.value;
+		var responsavelVar = input_responsavel.value
+		var telefoneVar = input_telefone_responsavel.value
+		if (
+			nomeVar == "" ||
+			cnpjVar == "" ||
+			emailVar == "" ||
+			senhaVar == "" ||
+			confirmacaoSenhaVar == "" ||
+			empresaVar == "" ||
+			responsavelVar == "" ||
+			telefoneVar ==""
+		) {
+			cardErro.style.display = "block";
+			mensagem_erro.innerHTML =
+				"(Mensagem de erro para todos os campos em branco)";
+
+			finalizarAguardar();
+			return false;
+		} else {
+			setInterval(sumirMensagem, 5000);
+		}
+
+		// Enviando o valor da nova input
+		fetch("/usuarios/cadastrar", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				// crie um atributo que recebe o valor recuperado aqui
+				// Agora vá para o arquivo routes/usuario.js
+				nomeServer: nomeVar,
+				emailServer: emailVar,
+				senhaServer: senhaVar,
+				empresaServer: empresaVar,
+				cpfserver: cnpjVar,
+				responsavelServer: responsavelVar,
+				telefoneServer: telefoneVar
+			}),
+		})
+			.then(function (resposta) {
+				console.log("resposta: ", resposta);
+
+				if (resposta.ok) {
+					cardErro.style.display = "block";
+
+					mensagem_erro.innerHTML =
+						"Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+					setTimeout(() => {
+						window.location = "login.html";
+					}, "2000");
+
+					limparFormulario();
+					finalizarAguardar();
+				} else {
+					throw "Houve um erro ao tentar realizar o cadastro!";
+				}
+			})
+			.catch(function (resposta) {
+				console.log(`#ERRO: ${resposta}`);
+				finalizarAguardar();
+			});
+
+		return false;
+	}
+
+	function listar() {
+		fetch("/empresas/listar", {
+			method: "GET",
+		})
+			.then(function (resposta) {
+				resposta.json().then((empresas) => {
+					empresas.forEach((empresa) => {
+						listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+					});
+				});
+			})
+			.catch(function (resposta) {
+				console.log(`#ERRO: ${resposta}`);
+			});
+	}
+
+	function sumirMensagem() {
+		cardErro.style.display = "none";
+	}
+</script>
+</html>
