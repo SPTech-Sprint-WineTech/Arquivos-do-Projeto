@@ -214,7 +214,7 @@ contaLinhas = 1;
 		if (showBottle == 1) return;
 
 		//utiliza a conta do scroll para definir a imagem usada
-		imagemGarrafa.src = `./imagens/Simulador-Financeiro/Garrafa-esvaziando/${escolheGarrafa}.png`;
+		imagemGarrafa.src = `../assets/imagensPaginaPrincipal/Simulador-Financeiro/Garrafa-esvaziando/${escolheGarrafa}.png`;
 	}
 
 	function chamaModal() {
@@ -230,7 +230,7 @@ contaLinhas = 1;
 		var closeModal = document.getElementById("fechar_modal_simulador");
 
 		//Troca imagem da garrafa, esconde a imagem "sombra" e define valores de estilo iniciais para trabalhar a animação
-		imagemGarrafa.src = "./imagens/Simulador-Financeiro/modal.png";
+		imagemGarrafa.src = "assets/imagensPaginaPrincipal/Simulador-Financeiro/modal.png";
 		sombraGarrafa.style = "display: none;";
 		imagemGarrafa.style = "height: auto; width: 4.5%;padding-right: 5.9%";
 
@@ -306,8 +306,8 @@ contaLinhas = 1;
 		//Troca imagem da garrafa, mostra a imagem "sombra" e define valores de estilo iniciais após rodar a animação
 		setTimeout(() => {
 			imagemGarrafa.style = "height: 180px; width: auto; padding-right: 0%";
-			imagemGarrafa.src = `./imagens/Simulador-Financeiro/Garrafa-esvaziando/${escolheGarrafa}.png`;
-
+			imagemGarrafa.src = `../assets/imagensPaginaPrincipal/Simulador-Financeiro/Garrafa-esvaziando/${escolheGarrafa}.png`;
+			
 			divGarrafa.style =
 				"justify-content: end;align-items: normal;padding-right: 0%;top: 65vh;";
 			sombraGarrafa.style = "display: show;";
@@ -318,7 +318,7 @@ contaLinhas = 1;
 	}
 
 	function tela_login() {
-		window.location.href = "../Login/index.html"
+		window.location.href = "../public/login.html"
 	}
 
 	function sobre_vinhos(tipo_vinho) {

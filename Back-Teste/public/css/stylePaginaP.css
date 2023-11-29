@@ -23,7 +23,7 @@ html {
 }
 
 body {
-	background-image: url("./imagens/red-wine\ 1.png");
+	background-image: url("../assets/imagensPaginaPrincipal/red-wine1.png");
 	background-size: contain;
 	background-color: #0c0908;
 	background-repeat: no-repeat;
@@ -241,7 +241,7 @@ color: black;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-image: url(./imagens/controle_adega.webp);
+	background-image: url("../assets/imagensPaginaPrincipal/controle_adega.webp");
 	position: sticky;
 	top: 43%;
 	width: 50%;
@@ -503,7 +503,7 @@ color: black;
 }
 
 #comentarios {
-	background-image: url("./imagens/comentarios/bg-comentarios.png");
+	background-image: url("../assets/imagensPaginaPrincipal/comentarios/bg-comentarios.png");
 	background-size: cover;
 	background-color: #0c0908;
 	z-index: 0;
