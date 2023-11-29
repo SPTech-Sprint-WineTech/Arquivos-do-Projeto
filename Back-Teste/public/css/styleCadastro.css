@@ -6,7 +6,7 @@
 }
 
 body {
-	background: url(imagens/background.png);
+	background: url(../assets/imagensCadastro/background.png);
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-color: black;

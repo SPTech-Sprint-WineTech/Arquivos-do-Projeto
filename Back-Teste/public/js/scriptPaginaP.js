@@ -214,7 +214,8 @@ contaLinhas = 1;
 		if (showBottle == 1) return;
 
 		//utiliza a conta do scroll para definir a imagem usada
-		imagemGarrafa.src = `../assets/imagensPaginaPrincipal/Simulador-Financeiro/Garrafa-esvaziando/${escolheGarrafa}.png`;
+		console.log(escolheGarrafa)
+		imagemGarrafa.src = `./assets/imagensPaginaPrincipal/Simulador-Financeiro/Garrafa-esvaziando/${escolheGarrafa}.png`;
 	}
 
 	function chamaModal() {
@@ -326,49 +327,49 @@ contaLinhas = 1;
 		var tipo = tipo_vinho;
 
 		if (tipo == "Cabernet Sauvignon") {
-			imagem_tipo_vinho.src = "./imagens/tipos-vinho/cabernet-sauvignon.png"
+			imagem_tipo_vinho.src = "./assets/imagensPaginaPrincipal/tipos-vinho/cabernet-sauvignon.png"
 			tipo_uva.innerHTML = `Cabernet Sauvignon`;
 			tipo_vinho.innerHTML = `<b>Tipo:</b> Tinto`;
 			temperatura_servico.innerHTML = `<b>Temperatura de Serviço:</b> 16ºC a 20ºC`;
 			harmonizacao_vinho.innerHTML = `<b>Harmonização:</b> Carnes vermelhas, 	queijos duros, massas com molho de tomate e pratos condimentados.`;
 		} else if (tipo == "Chardonnay") {
-			imagem_tipo_vinho.src = "./imagens/tipos-vinho/chardonnay.png"
+			imagem_tipo_vinho.src = "./assets/imagensPaginaPrincipal/tipos-vinho/chardonnay.png"
 			tipo_uva.innerHTML = `Chardonnay`;
 			tipo_vinho.innerHTML = `<b>Tipo:</b> Branco`;
 			temperatura_servico.innerHTML = `<b>Temperatura de Serviço:</b> 8ºC a 12ºC`;
 			harmonizacao_vinho.innerHTML = `<b>Harmonização:</b> Frutos do mar, aves, massas leves, queijos macios e saladas.`;
 		} else if (tipo == "Rosé de Provence") {
-			imagem_tipo_vinho.src = "./imagens/tipos-vinho/rose-de-provence.png"
+			imagem_tipo_vinho.src = "./assets/imagensPaginaPrincipal/tipos-vinho/rose-de-provence.png"
 			tipo_uva.innerHTML = `Rosé de Provence`;
 			tipo_vinho.innerHTML = `<b>Tipo:</b> Rosé`;
 			temperatura_servico.innerHTML = `<b>Temperatura de Serviço:</b> 8ºC a 12ºC`;
 			harmonizacao_vinho.innerHTML = `<b>Harmonização:</b> Saladas, carnes brancas, frutos do mar, queijos leves, churrasco e comidas de verão.`;
 		} else if (tipo == "Prosecco") {
-			imagem_tipo_vinho.src = "./imagens/tipos-vinho/prosecco.png"
+			imagem_tipo_vinho.src = "./assets/imagensPaginaPrincipal/tipos-vinho/prosecco.png"
 			tipo_uva.innerHTML = `Prosecco`;
 			tipo_vinho.innerHTML = `<b>Tipo:</b> Espumante`;
 			temperatura_servico.innerHTML = `<b>Temperatura de Serviço:</b> 5ºC a 10ºC`;
 			harmonizacao_vinho.innerHTML = `<b>Harmonização:</b> Aperitivos, frutos do mar, canapés, queijos suaves e sobremesas leves.`;
 		} else if (tipo == "Pinot Noir") {
-			imagem_tipo_vinho.src = "./imagens/tipos-vinho/pinot-noir.png"
+			imagem_tipo_vinho.src = "./assets/imagensPaginaPrincipal/tipos-vinho/pinot-noir.png"
 			tipo_uva.innerHTML = `Pinot Noir`;
 			tipo_vinho.innerHTML = `<b>Tipo:</b> Tinto`;
 			temperatura_servico.innerHTML = `<b>Temperatura de Serviço:</b> 16ºC a 20ºC`;
 			harmonizacao_vinho.innerHTML = `<b>Harmonização:</b> Carnes vermelhas, 	queijos duros, massas com molho de tomate e pratos condimentados.`;
 		} else if (tipo == "Sauvignon Blanc") {
-			imagem_tipo_vinho.src = "./imagens/tipos-vinho/sauvignon-blanc.png"
+			imagem_tipo_vinho.src = "./assets/imagensPaginaPrincipal/tipos-vinho/sauvignon-blanc.png"
 			tipo_uva.innerHTML = `Sauvignon Blanc`;
 			tipo_vinho.innerHTML = `<b>Tipo:</b> Branco`;
 			temperatura_servico.innerHTML = `<b>Temperatura de Serviço:</b> 8ºC a 12ºC`;
 			harmonizacao_vinho.innerHTML = `<b>Harmonização:</b> Frutos do mar, aves, massas leves, queijos macios e saladas.`;
 		} else if (tipo == "Zinfandel") {
-			imagem_tipo_vinho.src = "./imagens/tipos-vinho/zinfandel.png"
+			imagem_tipo_vinho.src = "./assets/imagensPaginaPrincipal/tipos-vinho/zinfandel.png"
 			tipo_uva.innerHTML = `Zinfandel`;
 			tipo_vinho.innerHTML = `<b>Tipo:</b> Rosé`;
 			temperatura_servico.innerHTML = `<b>Temperatura de Serviço:</b> 8ºC a 12ºC`;
 			harmonizacao_vinho.innerHTML = `<b>Harmonização:</b> Saladas, carnes brancas, frutos do mar, queijos leves, churrasco e comidas de verão.`;
 		} else if (tipo == "Cava") {
-			imagem_tipo_vinho.src = "./imagens/tipos-vinho/cava.png"
+			imagem_tipo_vinho.src = "./assets/imagensPaginaPrincipal/tipos-vinho/cava.png"
 			tipo_uva.innerHTML = `Cava`;
 			tipo_vinho.innerHTML = `<b>Tipo:</b> Espumante`;
 			temperatura_servico.innerHTML = `<b>Temperatura de Serviço:</b> 5ºC a 10ºC`;
