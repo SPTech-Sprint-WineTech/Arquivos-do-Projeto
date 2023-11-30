@@ -11,4 +11,4 @@ router.post("/cadastrar", function (req, res) {
     adegaControllers.cadastrar(req, res);
 })
 
-module.exports = router;
+module.exports = router; 
