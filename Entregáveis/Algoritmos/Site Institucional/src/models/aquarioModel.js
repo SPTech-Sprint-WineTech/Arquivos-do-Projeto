@@ -19,5 +19,5 @@ function cadastrar(empresaId, descricao) {
 
 module.exports = {
   buscarAdegaPorEmpresa,
-  cadastrar
+  cadastrar 
 }
