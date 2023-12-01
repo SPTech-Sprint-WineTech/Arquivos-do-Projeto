@@ -1,23 +1,20 @@
 var database = require("../database/config");
 
-function buscarAdegaPorEmpresa(empresaId) {
+function buscarAdegaPorEmpresa(vinicolaId) {
+	instrucaoSql = `select * from adega a where fkVinicola = ${vinicolaId}`;
 
-  instrucaoSql = `select * from aquario a where fk_empresa = ${empresaId}`;
-
-  console.log("Executando a instrução SQL: \n" + instrucaoSql);
-  return database.executar(instrucaoSql);
+	console.log("Executando a instrução SQL: \n" + instrucaoSql);
+	return database.executar(instrucaoSql);
 }
 
-function cadastrar(empresaId, descricao) {
-  
-  instrucaoSql = `insert into (descricao, fk_empresa) aquario values (${descricao}, ${empresaId})`;
+function cadastrar(vinicolaId, descricao) {
+	instrucaoSql = `insert into (descricao, fkVinicola) adega values (${descricao}, ${vinicolaId})`;
 
-  console.log("Executando a instrução SQL: \n" + instrucaoSql);
-  return database.executar(instrucaoSql);
+	console.log("Executando a instrução SQL: \n" + instrucaoSql);
+	return database.executar(instrucaoSql);
 }
-
 
 module.exports = {
-  buscarAdegaPorEmpresa,
-  cadastrar
-}
+	buscarAdegaPorEmpresa,
+	cadastrar,
+};

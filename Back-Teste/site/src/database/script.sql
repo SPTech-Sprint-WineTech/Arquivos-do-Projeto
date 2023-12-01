@@ -2,17 +2,14 @@ create database WineTech;
 
 use WineTech;
 
-drop database winetech;
-
-select * from usuario;
-
-select idUsuario, fkVinicola, nome from usuario WHERE email = 'alex@xvnovembro.com' AND senha = '123456';
-
 -- SCRIPT DE CRIAÇÃO DE TABELAS
 create table vinicola(
 idVinicola int primary key auto_increment,
-nome varchar(45) not null,
+nomeVinicola varchar(45) not null,
+telefoneResponsavel char(11) not null unique,
+responsavel varchar(45) not null,
 CNPJ char(15) not null unique,
+email varchar(50) not null unique,
 CEP char(9) not null unique,
 numero int not null,
 complemento varchar(70)
@@ -22,22 +19,22 @@ create table usuario(
 idUsuario int auto_increment,
 fkVinicola int,
 nome varchar(45) not null,
-telefone char(11) not null,
+telefoneCel char(11) not null,
 email varchar(50) not null,
 senha varchar(70) not null,
 validacao tinyint,
 constraint chkValidacao check(validacao in(0, 1)),
-constraint fkViniUser foreign key (fkVinicola) references vinicola(idVinicola),
+constraint fkUser foreign key (fkVinicola) references vinicola(idVinicola),
 primary key (idUsuario, fkVinicola) 
 );
 
 create table adega(
 idAdega int auto_increment,
 fkVinicola int,
-nome varchar(45) not null,
+nomeAdega varchar(45) not null,
 tempIdeal decimal(4, 2) not null,
 umiIdeal int not null,
-constraint fkViniAdega foreign key (fkVinicola) references vinicola(idVinicola),
+constraint fkVini foreign key (fkVinicola) references vinicola(idVinicola),
 primary key (idAdega, fkVinicola)
 );
 
@@ -48,82 +45,65 @@ safra varchar(45),
 tipoBarril varchar(45),
 dataArmazenamento datetime default current_timestamp,
 fkAdega int,
-constraint fkAdegaTipo foreign key (fkAdega) references adega(idAdega)
+constraint fkAdega foreign key (fkAdega) references adega(idAdega)
 );
 
 create table sensor(
 idSensor int primary key auto_increment,
-tipo varchar(5) not null,
-localizacao varchar(50) not null,
-constraint chkSensor check(tipo in ('LM35', 'DHT11')),
+tipoSensor varchar(5) not null,
+sensorLoc varchar(50) not null,
+constraint chkSensor check(tipoSensor in ('LM35', 'DHT11')),
 fkAdega int,
-constraint fkAdegaSensor foreign key (fkAdega) references adega(idAdega)
+constraint fkAdeg foreign key (fkAdega) references adega(idAdega)
 );
 
 create table dadosSensor(
-idDados int auto_increment,
+idDadosSensor int auto_increment,
 fkSensor int,
 registro decimal(4,2),
 dataHora datetime default current_timestamp,
-constraint fkSensorDados foreign key (fkSensor) references sensor(idSensor),
-primary key(idDados, fkSensor) 
+constraint fkSense foreign key (fkSensor) references sensor(idSensor),
+primary key(idDadosSensor, fkSensor) 
 );
 
-
--- SELECT PARA TRAZER TEMPERATURA DO BANCO DE DADOS DE ACORDO COM O ID DA ADEGA E TIPO DO SENSOR, POIS NAO TENHO O ID DO SENSOR SALVO NO BACKEND
-/*
-select dS.registro as temperatura, dS.leitura, DATE_FORMAT(dS.leitura, '%H:%i:%s') as momento_grafico from dadosSensor as dS
-join sensor as s on s.idSensor = dS.fkSensor
-where s.fkAdega = ${idAdega} and s.tipo = 'LM35' order by dS.idDados desc limit ${limite_linhas};
-*/
-
-
 -- SCRIPT DE INSERÇÃO DE REGISTRO
-insert into vinicola (nome, CNPJ, CEP, numero, complemento)
-values ('XV de Novembro', '123456789000190', '12345-678', 123, null);
 
-insert into usuario (fkVinicola, nome, telefone, email, senha, validacao)
-values 	(1, 'xvdenovembrosr', '11996131411', 'xvdenovembro@gmail.com', '123456', 0);
-
-insert into adega (fkVinicola, nome, tempIdeal, umiIdeal)
-values (1, 'Adega Leão', 15.0, 75),
-       (1, 'Adega Rosé', 15.0, 75);
+/* insert into empresa (nomeEmpresa, responsavel, telefoneResponsavel, CNPJ, email, senha)
+values ('XV de Novembro', 'Adriano', '1234567890', '123456789012345678', 'xvnovembro@contato.com', 'senhaXYZ');
        
+insert into usuario (fkEmpresa, nome, telefoneCel, email, senha)
+values 	(1, 'xvdenovembrosr', '11996131411', 'xvdenovembro@gmail.com', '01101011011011');
+
+insert into vinicola (nomeVinicola, fkEmpresa)
+values 	('XV de Novembro - SR', 1);
+
+insert into enderecoVinicola (CEP, numero, complemento, fkVinicola)
+values 	('12345-678', 123, null, 1);
+
+insert into adega (nomeAdega, tempIdeal, umiIdeal, fkVinicola)
+values ('Adega Leão', 15.00, 75.00, 1), 
+       ('Adega Rosê', 15.0, 75.00, 1);
+
 insert into tipoVinho (tipo, safra, tipoBarril, fkAdega)
 values('Cabernet Sauvignon', '2020', 'Carvalho Francês', 1), 
        ('Chardonnay', '2019', 'Carvalho Americano', 1),
        ('Prosecco', '2021', 'Carvalho Americano', 2),
        ('Pinot Noir', '2018', 'Carvalho Francês', 2);
-       
-insert into sensor (tipo, localizacao, fkAdega)
+
+insert into sensor (tipoSensor, sensorLoc, fkAdega)
 values ('LM35', 'LocalA', 1),
        ('DHT11', 'LocalA', 1),
        ('LM35', 'LocalB', 2),
-       ('DHT11', 'LocalB', 2);
+       ('DHT11', 'LocalB', 2); 
 
-insert into dadosSensor (fkSensor, registro)
-values (1, 15.0),
-       (2, 75),
-       (3, 16.9),
-       (4, 70),
-       (1, 15.0),
-       (2, 75),
-       (3, 16.9),
-       (4, 70),
-       (1, 15.0),
-       (2, 75),
-       (3, 16.9),
-       (4, 70),
-       (1, 15.0),
-       (2, 75),
-       (3, 16.9),
-       (4, 70), 
-       (1, 15.0),
-       (2, 75),
-       (3, 16.9),
-       (4, 70);
+insert into dadosSensor (fkSensor, registro, dataHora)
+values (1, 15.00, '2023-10-31 12:05:00'),
+       (2, 75.00, '2023-10-31 12:05:00'),
+       (3, 26.00, '2023-10-31 12:05:00'),
+       (4, 67.00, '2023-10-31 12:05:00');
 
 -- SCRIPT DE CONSULTA DE DADOS
+
 select nomeEmpresa as "Empresa Mãe", responsavel as Responsável, nomeVinicola as Vinícola, nomeAdega as Adega 
 		from vinicola 
 			join empresa on fkEmpresa = idEmpresa
@@ -151,4 +131,4 @@ insert into empresa (nomeEmpresa, responsavel, telefoneResponsavel, cnpj, email,
 values ('WineTech', 'admin', '11-9000000000', '000000000000000000', 'admin@winetech.com', 'saoroque');
 
 insert into usuario (fkEmpresa, nome, telefoneCel, email, senha)
-values (1, 'admin', '11-9100000000', 'useradmin@gmail.com', 'adminadmin');
+values (1, 'admin', '11-9100000000', 'useradmin@gmail.com', 'adminadmin');*\

@@ -26,29 +26,40 @@
 
 		<main>
 			<div class="container_geral">
-				<div class="container_kpis">
-					<div class="kpis">
-						<h3>Temperatura mínima:</h3>
-						<h2><span id="tempMax">12</span>C°</h2>
-						<h4>(24H)</h4>
+				<div class="container_3">
+					<div class="container_grafico_velo">
+						<div class="texto_grafico_velo">
+							<h3>Temperatura atual:</h3>
+						</div>
+						<div>
+							<!-- <canvas id="velo_temperatura" height="80"></canvas> -->
+						</div>
 					</div>
 
-					<div class="kpis">
-						<h3>Temperatura máxima:</h3>
-						<h2><span id="tempMax">18</span>C°</h2>
-						<h4>(24H)</h4>
+					<div class="container_grafico_velo">
+						<div class="texto_grafico_velo">
+							<h3>Umidade atual:</h3>
+						</div>
+						<div>
+							<!-- <canvas id="velo_umidade" width="80" height="80"></canvas> -->
+						</div>
 					</div>
 
-					<div class="kpis">
-						<h3>Umidade miníma:</h3>
-						<h2>70%</h2>
-						<h4>(24H)</h4>
-					</div>
+					<div class="container_chamados">
+						<h3>Visão geral:</h3>
 
-					<div class="kpis">
-						<h3>Umidade máxima:</h3>
-						<h2>80%</h2>
-						<h4>(24H)</h4>
+						<div class="container_graficos_chamados">
+							<div class="graficos_chamados">
+								<canvas
+									id="grafico_coluna_chamado"
+									width="150"
+									height="80"></canvas>
+							</div>
+
+							<div class="graficos_chamados">
+								<canvas id="myPieChart" width="150" height="80"></canvas>
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -107,40 +118,29 @@
 					</div>
 				</div>
 
-				<div class="container_3">
-					<div class="container_grafico_velo">
-						<div class="texto_grafico_velo">
-							<h3>Temperatura atual:</h3>
-						</div>
-						<div>
-							<canvas id="velo_temperatura" width="300" height="100"></canvas>
-						</div>
+				<div class="container_kpis">
+					<div class="kpis">
+						<h3>Temperatura mínima:</h3>
+						<h2><span id="tempMax">12</span>C°</h2>
+						<h4>(24H)</h4>
 					</div>
 
-					<div class="container_grafico_velo">
-						<div class="texto_grafico_velo">
-							<h3>Umidade atual:</h3>
-						</div>
-						<div>
-							<canvas id="velo_umidade" width="300" height="100"></canvas>
-						</div>
+					<div class="kpis">
+						<h3>Temperatura máxima:</h3>
+						<h2><span id="tempMax">18</span>C°</h2>
+						<h4>(24H)</h4>
 					</div>
 
-					<div class="container_chamados">
-						<h3>Visão geral:</h3>
+					<div class="kpis">
+						<h3>Umidade miníma:</h3>
+						<h2>70%</h2>
+						<h4>(24H)</h4>
+					</div>
 
-						<div class="container_graficos_chamados">
-							<div class="graficos_chamados">
-								<canvas
-									id="grafico_coluna_chamado"
-									width="150"
-									height="80"></canvas>
-							</div>
-
-							<div class="graficos_chamados">
-								<canvas id="myPieChart" width="150" height="80"></canvas>
-							</div>
-						</div>
+					<div class="kpis">
+						<h3>Umidade máxima:</h3>
+						<h2>80%</h2>
+						<h4>(24H)</h4>
 					</div>
 				</div>
 
@@ -205,13 +205,13 @@
 					label: "temperatura",
 					data: [15, 19, 17, 15, 17, 13, 18],
 					borderWidth: 1,
-					backgroundColor: "rgb(150, 0, 0)",
+					backgroundColor: "#FF6384",
 				},
 				{
 					label: "umidade",
 					data: [70, 62, 63, 65, 62, 63, 68],
 					borderWidth: 1,
-					backgroundColor: "rgb(0, 0, 150)",
+					backgroundColor: "#FFCE56",
 				},
 			],
 		},
@@ -248,7 +248,7 @@
 				{
 					label: "# of Votes",
 					data: [12, 19],
-					backgroundColor: "#FAF",
+					backgroundColor: ["#FF6384", "#FFCE56"],
 					borderWidth: 1,
 				},
 			],
@@ -275,49 +275,106 @@
 		},
 	});
 
-	var pizza_chamado = document.getElementById("myPieChart").getContext("2d");
+	var pizza_chamado = document.getElementById("myPieChart");
 
 	// Defina os dados do gráfico de pizza
-	var data = {
-		labels: ["Categoria 1", "Categoria 2", "Categoria 3"],
-		datasets: [
-			{
-				data: [30, 40, 30], // Valores percentuais para cada categoria
-				backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-			},
-		],
-	};
-
-	// Defina as opções do gráfico de pizza
-	var options = {
-		responsive: true,
-		maintainAspectRatio: false,
-		scales: {
-			y: {
-				beginAtZero: true,
-				ticks: {
-					color: "#FFF",
-				},
-			},
-			x: {
-				ticks: {
-					color: "#FFF",
-				},
-			},
-		},
-		plugins: {
-			legend: {
-				position: "none",
-			},
-		},
-	};
-
-	// Crie o gráfico de pizza
-	var myPieChart = new Chart(pizza_chamado, {
+	new Chart(pizza_chamado, {
 		type: "pie",
-		data: data,
-		options: options,
+		data: {
+			labels: ["Temperatura", "Umidade"],
+			datasets: [
+				{
+					data: [60, 40], // Valores percentuais para cada categoria
+					backgroundColor: ["#FF6384", "#FFCE56"],
+				},
+			],
+		},
+		options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			scales: {
+				y: {
+					beginAtZero: true,
+					ticks: {
+						color: "#FFF",
+					},
+				},
+				x: {
+					ticks: {
+						color: "#FFF",
+					},
+				},
+			},
+			plugins: {
+				legend: {
+					position: "none",
+				},
+			},
+		},
 	});
 
-	var velo_temp = document.getElementById("velo_temperatura").getContext("2d");
+	// var dougUmid = document.getElementById("velo_umidade");
+
+	// // Defina os dados do gráfico de velocimetro
+	// new Chart(dougUmid, {
+	// 	type: "doughnut",
+	// 	data: {
+	// 		labels: ["Umidade"],
+	// 		datasets: [
+	// 			{
+	// 				label: "# of Votes",
+	// 				data: [10, 10, 10, 10, 10],
+	// 				backgroundColor: [
+	// 					"#ff0000",
+	// 					"#ffff00",
+	// 					"#00ff00",
+	// 					"#ffff00",
+	// 					"#ff0000",
+	// 				],
+	// 				borderWidth: 0,
+	// 			},
+	// 		],
+	// 	},
+	// 	options: {
+	// 		plugins: {
+	// 			legend: {
+	// 				position: "none",
+	// 			},
+	// 		},
+	// 		circumference: 190,
+	// 		rotation: 265,
+	// 	},
+	// });
+	// var dougTemp = document.getElementById("velo_temperatura");
+
+	// // Defina os dados do gráfico de velocimetro
+	// new Chart(dougTemp, {
+	// 	type: "doughnut",
+	// 	data: {
+	// 		labels: ["Umidade"],
+	// 		datasets: [
+	// 			{
+	// 				label: "# of Votes",
+	// 				data: [10, 10, 10, 10, 10],
+	// 				backgroundColor: [
+	// 					"#ff0000",
+	// 					"#ffff00",
+	// 					"#00ff00",
+	// 					"#ffff00",
+	// 					"#ff0000",
+	// 				],
+	// 				borderWidth: 0,
+	// 			},
+	// 		],
+	// 	},
+	// 	options: {
+	// 		plugins: {
+	// 			legend: {
+	// 				position: "none",
+	// 			},
+	// 		},
+	// 		circumference: 190,
+	// 		rotation: 265,
+	// 	},
+	// });
 </script>
