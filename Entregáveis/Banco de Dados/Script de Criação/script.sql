@@ -3,52 +3,39 @@ create database WineTech;
 use WineTech;
 
 -- SCRIPT DE CRIAÇÃO DE TABELAS
-create table empresa(
-idEmpresa int primary key auto_increment,
-nomeEmpresa varchar(45) not null,
+create table vinicola(
+idVinicola int primary key auto_increment,
+nomeVinicola varchar(45) not null,
+telefoneResponsavel char(11) not null unique,
 responsavel varchar(45) not null,
-telefoneResponsavel varchar(14) not null unique,
-CNPJ char(18) not null unique,
+CNPJ char(15) not null unique,
 email varchar(50) not null unique,
-senha varchar(70) not null
+CEP char(9) not null unique,
+numero int not null,
+complemento varchar(70)
 );
 
 create table usuario(
 idUsuario int auto_increment,
-fkEmpresa int,
+fkVinicola int,
 nome varchar(45) not null,
-telefoneCel varchar(14) not null,
+telefoneCel char(11) not null,
 email varchar(50) not null,
 senha varchar(70) not null,
-validacao tinyint(1),
+validacao tinyint,
 constraint chkValidacao check(validacao in(0, 1)),
-constraint fkUser foreign key (fkEmpresa) references empresa(idEmpresa),
-primary key (idUsuario, fkEmpresa) 
-);
-
-create table vinicola(
-idVinicola int primary key auto_increment,
-nomeVinicola varchar(45) not null,
-fkEmpresa int,
-constraint fkEmp foreign key (fkEmpresa) references empresa(idEmpresa)
-);
-
-create table enderecoVinicola(
-idEnderecoVinicola int primary key auto_increment,
-fkVinicola int,
-CEP char(9) not null,
-numero int not null,
-complemento varchar(70),
-constraint fkVin foreign key (fkVinicola) references vinicola(idVinicola)
+constraint fkUser foreign key (fkVinicola) references vinicola(idVinicola),
+primary key (idUsuario, fkVinicola) 
 );
 
 create table adega(
-idAdega int primary key auto_increment,
+idAdega int auto_increment,
+fkVinicola int,
 nomeAdega varchar(45) not null,
 tempIdeal decimal(4, 2) not null,
-umiIdeal decimal(4, 2) not null,
-fkVinicola int,
-constraint fkVini foreign key (fkVinicola) references vinicola(idVinicola)
+umiIdeal int not null,
+constraint fkVini foreign key (fkVinicola) references vinicola(idVinicola),
+primary key (idAdega, fkVinicola)
 );
 
 create table tipoVinho(
@@ -138,10 +125,10 @@ Registro, dataHora as "Data e Hora"
 	from sensor
 		join dadosSensor on fkSensor = idSensor
 			join adega on fkAdega = idAdega
-				join vinicola on fkVinicola = idVinicola; */
+				join vinicola on fkVinicola = idVinicola; 
                 
 insert into empresa (nomeEmpresa, responsavel, telefoneResponsavel, cnpj, email, senha) 
 values ('WineTech', 'admin', '11-9000000000', '000000000000000000', 'admin@winetech.com', 'saoroque');
 
 insert into usuario (fkEmpresa, nome, telefoneCel, email, senha)
-values (1, 'admin', '11-9100000000', 'useradmin@gmail.com', 'adminadmin');
+values (1, 'admin', '11-9100000000', 'useradmin@gmail.com', 'adminadmin');*\
