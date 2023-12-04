@@ -694,7 +694,7 @@ color: black;
 
 	font-style: normal;
 	line-height: normal;
-	margin-top: 10%;
+	margin-top: 4%;
 }
 
 #fale_conosco .contato_formulario {
@@ -803,6 +803,14 @@ color: black;
 
 #fale_conosco .contato_formulario .formulario button:active {
 	background-color: #260101;
+}
+
+.cadastrese {
+	color: #ffffff;
+	font-family: "Bona Nova";
+	font-size: 17px;
+	font-weight: 200;
+	margin-top: 1%;
 }
 
 .footer {

@@ -14,8 +14,8 @@ void setup(){
 
 //Função que será executada continuamente
 void loop(){
-  temperatura = (float(analogRead(LM35))*5/((1023))/0.01)- 10;
-  float umidade = dht_1.readHumidity()+26;
+  temperatura = (float(analogRead(LM35))*5/((1023))/0.01)-9;
+  float umidade = dht_1.readHumidity()+20;
   
   //float temperatura2 = dht_1.readTemperature();
   //Serial.print("Temperatura: ");
