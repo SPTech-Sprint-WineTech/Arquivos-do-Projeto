@@ -23,16 +23,14 @@ function logar() {
 	var senhaVar = password.value;
 
 	if (emailVar == "" || senhaVar == "") {
-		// cardErro.style.display = "block";
-		// mensagem_erro.innerHTML =
-		// 	"(Mensagem de erro para todos os campos em branco)";
-		// finalizarAguardar();
+		alertaErro.style.display = "block";
+		mensagem_erro.innerHTML = "Os campos não podem estar em branco";
+		setInterval(sumirMensagem, 4000);
 		console.log(`erro de campos em branco`);
 		return false;
+	} else {
+		setInterval(sumirMensagem, 5000);
 	}
-	// else {
-	// 	setInterval(sumirMensagem, 5000);
-	// }
 
 	console.log("FORM LOGIN: ", emailVar);
 	console.log("FORM SENHA: ", senhaVar);
@@ -79,4 +77,8 @@ function logar() {
 		});
 
 	return false;
+}
+
+function sumirMensagem() {
+	alertaErro.style.display = "none";
 }

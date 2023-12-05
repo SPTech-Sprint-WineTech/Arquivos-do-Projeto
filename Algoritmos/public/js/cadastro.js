@@ -1,5 +1,5 @@
 function toLogin() {
-	window.location.href = "../public/login.html";
+	window.location.href = "./login.html";
 }
 
 function cadastrar() {
@@ -24,16 +24,65 @@ function cadastrar() {
 		senhaVar == "" ||
 		confirmacaoSenhaVar == ""
 	) {
-		// cardErro.style.display = "block";
-		// mensagem_erro.innerHTML =
-		// 	"(Mensagem de erro para todos os campos em branco)";
+		alertaErro.style.display = "block";
+		mensagem_erro.innerHTML = "Por favor preencha todos os campos!!";
 		console.log(`erro de campos`);
-		// finalizarAguardar();
+
+		setInterval(sumirMensagem, 4000);
 		return false;
+	} else if (usuarioVar.length <= 1) {
+		alertaErro.style.display = "flex";
+		mensagem_erro.innerHTML =
+			"Nome do usuário inválido<br><br>O campo usuário deve conter mais de 01 caractere";
+
+		setInterval(sumirMensagem, 4000);
+		return false;
+	} else if (nomeVar.length <= 1) {
+		alertaErro.style.display = "flex";
+		mensagem_erro.innerHTML =
+			"Nome inválido<br><br>O campo nome deve conter mais de 01 caractere";
+
+		setInterval(sumirMensagem, 4000);
+		return false;
+	} else if (sobrenomeVar.length <= 1) {
+		alertaErro.style.display = "flex";
+		mensagem_erro.innerHTML =
+			"Sobrenome inválido<br><br>O campo sobrenome deve conter mais de 01 caractere";
+
+		setInterval(sumirMensagem, 4000);
+		return false;
+	} else if (cidadeVar.length <= 1) {
+		alertaErro.style.display = "flex";
+		mensagem_erro.innerHTML =
+			"Cidade inválida<br><br>O campo cidade deve conter mais de 01 caractere";
+
+		setInterval(sumirMensagem, 4000);
+		return false;
+	} else if (emailVar.indexOf("@") < 0 || emailVar.indexOf(".") < 0) {
+		alertaErro.style.display = "flex";
+		mensagem_erro.innerHTML =
+			"Email inválido<br><br>O email deve conter os caracteres @ e .";
+
+		setInterval(sumirMensagem, 4000);
+		return false;
+	} else if (senhaVar.length <= 5) {
+		alertaErro.style.display = "flex";
+		mensagem_erro.innerHTML =
+			"senha inválido<br><br>A senha deve conter ao menos 06 caracteres";
+
+		setInterval(sumirMensagem, 4000);
+		return false;
+		lit;
+	} else if (confirmacaoSenhaVar != senhaVar) {
+		alertaErro.style.display = "flex";
+		mensagem_erro.innerHTML =
+			"Confirmação de senha inválida<br><br>Ambas as senhas devem ser iguais";
+
+		setInterval(sumirMensagem, 4000);
+		return false;
+	} else {
+		setInterval(sumirMensagem, 4000);
 	}
-	// else {
-	// 	setInterval(sumirMensagem, 5000);
-	// }
 
 	console.log(`cadastrar do cadastro`);
 	// Enviando o valor da nova input
@@ -98,5 +147,5 @@ function listar() {
 }
 
 function sumirMensagem() {
-	cardErro.style.display = "none";
+	alertaErro.style.display = "none";
 }

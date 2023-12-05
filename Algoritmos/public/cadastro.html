@@ -17,6 +17,11 @@
 
 	<body>
 		<header>
+			<div class="alerta_erro" id="alertaErro">
+				<div class="card_erro" id="cardErro">
+					<span id="mensagem_erro"></span>
+				</div>
+			</div>
 			<div class="botao_voltar">
 				<img
 					src="assets/imagensCadastro/voltar.png"
@@ -40,18 +45,18 @@
 				<input
 					type="text"
 					class="campo_de_dados"
-					placeholder="Nome da Empresa"
+					placeholder="Nome Completo"
 					id="input_nome" />
 				<!-- <input type="text" class="campo_de_dados" placeholder="Responsável" id="input_responsavel"> -->
 				<input
 					type="text"
 					class="campo_de_dados"
-					placeholder="Telefone Responsável"
+					placeholder="Celular ex:11987654321"
 					id="input_telefone_responsavel" />
 				<input
 					type="text"
 					class="campo_de_dados"
-					placeholder="CNPJ"
+					placeholder="CNPJ ex:12345678000190"
 					id="input_cnpj" />
 				<input
 					type="text"
