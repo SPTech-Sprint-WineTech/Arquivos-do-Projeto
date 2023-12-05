@@ -160,3 +160,26 @@ h2 {
 	align-items: center;
 	margin-bottom: 10px;
 }
+
+h5 {
+	font-family: "Montserrat", sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	margin-top: 15px;
+}
+
+h5 a {
+	color: #bf9460;
+	text-decoration: none;
+	font-family: "Montserrat", sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+a:hover {
+	color: rgb(178, 115, 38);
+}
