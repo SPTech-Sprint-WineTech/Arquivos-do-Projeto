@@ -805,6 +805,12 @@ color: black;
 	background-color: #260101;
 }
 
+.cadastrese {
+	font-family: "Poppins";
+	font-weight: 200;
+	font-size: 17px;
+}
+
 .footer {
 	background-color: #59514d;
 	width: 100%;
