@@ -209,6 +209,25 @@ function plotarGrafico(resposta, idAdega) {
 		resposta.medidaTemperatura[0].temperatura
 	).toFixed(1);
 	var umidadeAtual = Number(resposta.medidaUmidade[0].umidade).toFixed(0);
+	var modal_alerta = document.getElementById("alerta");
+	var imagem_alerta = document.getElementById("imagem_alerta");
+	if (
+		temperaturaAtual >= 18 ||
+		temperaturaAtual <= 12 ||
+		umidadeAtual >= 80 ||
+		umidadeAtual <= 70
+	) {
+		modal_alerta.style = `display: flex;`;
+		imagem_alerta.src = `../assets/ImagensDashboard/critico.png`;
+	} else if (
+		temperaturaAtual >= 16.5 ||
+		temperaturaAtual <= 13.5 ||
+		umidadeAtual >= 77 ||
+		umidadeAtual <= 73
+	) {
+		modal_alerta.style = `display: flex;`;
+		imagem_alerta.src = `../assets/ImagensDashboard/alerta.png`;
+	}
 
 	var marcadorTemperatura = document.getElementById("marcador_temp");
 	var positionLeftTemp = (temperaturaAtual - 12) * 2.783334;
@@ -263,18 +282,7 @@ function plotarGrafico(resposta, idAdega) {
 		dados_dias_labels[indice_dias] = registroTemp.data_grafico;
 		data_anterior = registroTemp.data_grafico;
 
-		if (registroTemp.temperatura >= 17.5) {
-			ocorrencias_temp += 1;
-			dados_dias_temp[indice_dias] += 1;
-			linha_ocorrencias_data.innerHTML += `<span>${registroTemp.data_grafico} / ${registroTemp.hora_grafico}</span><br />`;
-			linha_ocorrencias_id.innerHTML += `<span>${registroTemp.id}</span><br />`;
-			linha_ocorrencias_temp.innerHTML += `<span>${Number(
-				registroTemp.temperatura
-			).toFixed(1)} °C</span><br />`;
-			linha_ocorrencias_umid.innerHTML += `<span>${Number(
-				registroUmid.umidade
-			).toFixed(0)} %</span><br />`;
-		} else if (registroTemp.temperatura <= 12.5) {
+		if (registroTemp.temperatura >= 17.5 || registroTemp.temperatura <= 12.5) {
 			ocorrencias_temp += 1;
 			dados_dias_temp[indice_dias] += 1;
 			linha_ocorrencias_data.innerHTML += `<span>${registroTemp.data_grafico} / ${registroTemp.hora_grafico}</span><br />`;
@@ -287,18 +295,7 @@ function plotarGrafico(resposta, idAdega) {
 			).toFixed(0)} %</span><br />`;
 		}
 
-		if (registroUmid.umidade >= 78) {
-			ocorrencias_umid += 1;
-			dados_dias_umid[indice_dias] += 1;
-			linha_ocorrencias_data.innerHTML += `<span>${registroUmid.data_grafico} / ${registroUmid.hora_grafico}</span><br />`;
-			linha_ocorrencias_id.innerHTML += `<span>${registroUmid.id}</span><br />`;
-			linha_ocorrencias_temp.innerHTML += `<span>${Number(
-				registroTemp.temperatura
-			).toFixed(1)} °C</span><br />`;
-			linha_ocorrencias_umid.innerHTML += `<span>${Number(
-				registroUmid.umidade
-			).toFixed(0)} %</span><br />`;
-		} else if (registroUmid.umidade <= 72) {
+		if (registroUmid.umidade >= 78 || registroUmid.umidade <= 72) {
 			ocorrencias_umid += 1;
 			dados_dias_umid[indice_dias] += 1;
 			linha_ocorrencias_data.innerHTML += `<span>${registroUmid.data_grafico} / ${registroUmid.hora_grafico}</span><br />`;
@@ -369,6 +366,19 @@ function plotarGrafico(resposta, idAdega) {
 	}
 	proximaAtualizacao = setTimeout(() => obterDadosGrafico(idAdega), 2000);
 	// setTimeout(() => obterDadosGrafico(idAdega), 2000);
+}
+
+function fechar_alerta() {
+	var modal_alerta = document.getElementById("alerta");
+
+	modal_alerta.style = `z-index: -4;`;
+	modal_alerta.style = `filter: opacity(0);`;
+
+	setTimeout(() => {
+		modal_alerta.style = `display: none;`;
+		modal_alerta.style = `z-index: 4;`;
+		modal_alerta.style = `filter: opacity(100);`;
+	}, 300000);
 }
 
 var adegaAtual = 0;
