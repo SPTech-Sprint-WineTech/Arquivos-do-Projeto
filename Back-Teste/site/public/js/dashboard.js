@@ -85,13 +85,13 @@ function plotarGrafico(resposta, idAdega) {
 			labels: [],
 			datasets: [
 				{
-					label: "temperatura",
+					label: "Temperatura",
 					data: [],
 					borderWidth: 1,
 					backgroundColor: "#FF6384",
 				},
 				{
-					label: "umidade",
+					label: "Umidade",
 					data: [],
 					borderWidth: 1,
 					backgroundColor: "#FFCE56",
@@ -125,7 +125,7 @@ function plotarGrafico(resposta, idAdega) {
 			labels: ["Temperatura", "Umidade"],
 			datasets: [
 				{
-					label: "# of Votes",
+					label: "Total de Alertas",
 					data: [],
 					backgroundColor: ["#FF6384", "#FFCE56"],
 					borderWidth: 1,
@@ -156,9 +156,10 @@ function plotarGrafico(resposta, idAdega) {
 	var pizza_total_ocorrencias = {
 		type: "pie",
 		data: {
-			labels: ["Temperatura", "Umidade"],
+			labels: ["Temperatura (%)", "Umidade (%)"],
 			datasets: [
 				{
+					label: "Porcentagem de Alertas",
 					data: [], // Valores percentuais para cada categoria
 					backgroundColor: ["#FF6384", "#FFCE56"],
 				},
@@ -260,6 +261,7 @@ function plotarGrafico(resposta, idAdega) {
 			}
 		}
 		dados_dias_labels[indice_dias] = registroTemp.data_grafico;
+		data_anterior = registroTemp.data_grafico;
 
 		if (registroTemp.temperatura >= 17.5) {
 			ocorrencias_temp += 1;
@@ -332,16 +334,15 @@ function plotarGrafico(resposta, idAdega) {
 	umid_max.innerHTML = umidMaxima.toFixed(0);
 
 	total_ocorrencias = ocorrencias_temp + ocorrencias_umid;
-
 	porcent_temp = ((ocorrencias_temp / total_ocorrencias) * 100).toFixed(1);
 	porcent_umid = ((ocorrencias_umid / total_ocorrencias) * 100).toFixed(1);
+
+	pizza_total_ocorrencias.data.datasets[0].data = [porcent_temp, porcent_umid];
 
 	column_total_ocorrencias.data.datasets[0].data = [
 		ocorrencias_temp,
 		ocorrencias_umid,
 	];
-
-	pizza_total_ocorrencias.data.datasets[0].data = [porcent_temp, porcent_umid];
 
 	bar_ocorrencias_dia.data.labels = dados_dias_labels;
 	bar_ocorrencias_dia.data.datasets[0].data = dados_dias_temp;
