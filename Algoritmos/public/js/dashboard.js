@@ -211,22 +211,24 @@ function plotarGrafico(resposta, idAdega) {
 	var umidadeAtual = Number(resposta.medidaUmidade[0].umidade).toFixed(0);
 	var modal_alerta = document.getElementById("alerta");
 	var imagem_alerta = document.getElementById("imagem_alerta");
-	if (
-		temperaturaAtual >= 18 ||
-		temperaturaAtual <= 12 ||
-		umidadeAtual >= 80 ||
-		umidadeAtual <= 70
-	) {
-		modal_alerta.style = `display: flex;`;
-		imagem_alerta.src = `../assets/ImagensDashboard/critico.png`;
-	} else if (
-		temperaturaAtual >= 16.5 ||
-		temperaturaAtual <= 13.5 ||
-		umidadeAtual >= 77 ||
-		umidadeAtual <= 73
-	) {
-		modal_alerta.style = `display: flex;`;
-		imagem_alerta.src = `../assets/ImagensDashboard/alerta.png`;
+	if(intervalo_alerta == 0){
+		if (
+			temperaturaAtual >= 18 ||
+			temperaturaAtual <= 12 ||
+			umidadeAtual >= 80 ||
+			umidadeAtual <= 70
+		) {
+			modal_alerta.style = `display: flex;`;
+			imagem_alerta.src = `../assets/ImagensDashboard/critico.png`;
+		} else if (
+			temperaturaAtual >= 16.5 ||
+			temperaturaAtual <= 13.5 ||
+			umidadeAtual >= 77 ||
+			umidadeAtual <= 73
+		) {
+			modal_alerta.style = `display: flex;`;
+			imagem_alerta.src = `../assets/ImagensDashboard/alerta.png`;
+		}
 	}
 
 	var marcadorTemperatura = document.getElementById("marcador_temp");
@@ -346,8 +348,18 @@ function plotarGrafico(resposta, idAdega) {
 	bar_ocorrencias_dia.data.datasets[1].data = dados_dias_umid;
 
 	if (chart_coluna != "" || chart_pizza != "" || chart_ocorrencia != "") {
+		chart_coluna.data.datasets[0].data = [
+			ocorrencias_temp,
+			ocorrencias_umid,
+		];
 		chart_coluna.update();
+
+		chart_pizza.data.datasets[0].data = [porcent_temp, porcent_umid];
 		chart_pizza.update();
+
+		chart_ocorrencia.data.labels = dados_dias_labels;
+		chart_ocorrencia.data.datasets[0].data = dados_dias_temp;
+		chart_ocorrencia.data.datasets[1].data = dados_dias_umid;
 		chart_ocorrencia.update();
 	} else {
 		// Adicionando gráfico criado em div na tela
@@ -371,15 +383,15 @@ function plotarGrafico(resposta, idAdega) {
 function fechar_alerta() {
 	var modal_alerta = document.getElementById("alerta");
 
-	modal_alerta.style = `z-index: -4;`;
-	modal_alerta.style = `filter: opacity(0);`;
+	intervalo_alerta = 1
+	modal_alerta.style = `display: none;`;
 
 	setTimeout(() => {
-		modal_alerta.style = `display: none;`;
-		modal_alerta.style = `z-index: 4;`;
-		modal_alerta.style = `filter: opacity(100);`;
+		intervalo_alerta = 0;
 	}, 300000);
 }
+
+var intervalo_alerta = 0;
 
 var adegaAtual = 0;
 var chart_coluna = "";

@@ -30,13 +30,6 @@ function cadastrar() {
 
 		setInterval(sumirMensagem, 4000);
 		return false;
-	} else if (usuarioVar.length <= 1) {
-		alertaErro.style.display = "flex";
-		mensagem_erro.innerHTML =
-			"Nome do usuário inválido<br><br>O campo usuário deve conter mais de 01 caractere";
-
-		setInterval(sumirMensagem, 4000);
-		return false;
 	} else if (nomeVar.length <= 1) {
 		alertaErro.style.display = "flex";
 		mensagem_erro.innerHTML =
@@ -44,17 +37,17 @@ function cadastrar() {
 
 		setInterval(sumirMensagem, 4000);
 		return false;
-	} else if (sobrenomeVar.length <= 1) {
+	} else if (telefoneVar.length <= 10) {
 		alertaErro.style.display = "flex";
 		mensagem_erro.innerHTML =
-			"Sobrenome inválido<br><br>O campo sobrenome deve conter mais de 01 caractere";
+		"Telefone inválido<br><br>O campo telefone deve conter 11 caracteres";s
 
 		setInterval(sumirMensagem, 4000);
 		return false;
-	} else if (cidadeVar.length <= 1) {
+	} else if (cnpjVar.length <= 13) {
 		alertaErro.style.display = "flex";
 		mensagem_erro.innerHTML =
-			"Cidade inválida<br><br>O campo cidade deve conter mais de 01 caractere";
+			"CNPJ inválido<br><br>O campo CNPJ deve conter 14 caracteres";
 
 		setInterval(sumirMensagem, 4000);
 		return false;
