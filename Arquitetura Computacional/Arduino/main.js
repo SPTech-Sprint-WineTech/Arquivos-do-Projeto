@@ -43,8 +43,8 @@ const serial = async (
         const valores = data.split(',');
         const dht11Umidade = parseFloat(valores[0]);
         const dht11Temperatura = parseFloat(valores[1]);
-        const dht11Umidade2 = parseFloat(valores[0])+8;
-        const dht11Temperatura2 = parseFloat(valores[1])-10;
+        const dht11Umidade2 = parseFloat(valores[2]);
+        const dht11Temperatura2 = parseFloat(valores[3]);
 
         valoresDht11Umidade.push(dht11Umidade);
         valoresDht11Temperatura.push(dht11Temperatura);
