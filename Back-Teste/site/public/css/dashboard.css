@@ -142,6 +142,8 @@ header {
 .info_ocorrencias {
 	display: flex;
 	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .ocorrencias {
@@ -152,7 +154,7 @@ header {
 	width: 25%;
 	padding: 1px;
 	border-left: solid 1px #4a4949;
-	height: 100%;
+	height: fit-content;
 	background-color: #666464;
 }
 
@@ -169,7 +171,7 @@ header {
 }
 
 .linhas_ocorrencias span {
-	font-size: 14px;
+	font-size: 13px;
 }
 
 .container_grafico_ocorrencia {
@@ -223,19 +225,72 @@ header {
 
 .texto_grafico_velo {
 	width: 100%;
-	height: 25px;
+	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 }
 
 .texto_grafico_velo h3 {
 	padding: 1%;
 	background-color: #373737;
-	height: 100%;
+	height: 20%;
 	width: 100%;
+	font-size: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
+.texto_grafico_velo h2 {
+	font-size: 60px;
+	height: 80%;
+	width: 80%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+	padding: 5% 0 0 0;
+	margin-bottom: 5%;
+	border-bottom: 1px solid white;
+}
+
+.marcador_kpi {
+	position: absolute;
+	width: 30px;
+	top: 18.5%;
+}
+#kpi_bar_temp {
+	width: 90%;
+	height: 10px;
+	background: linear-gradient(
+		to right,
+		rgb(255, 0, 0) 0%,
+		rgb(255, 255, 0) 20%,
+		rgb(0, 255, 0) 40%,
+		rgb(0, 255, 0) 60%,
+		rgb(255, 255, 0) 80%,
+		rgb(255, 0, 0) 100%
+	);
+	border-radius: 10px;
+	border: 1px solid #4a4949;
+}
+#kpi_bar_umid {
+	width: 90%;
+	height: 10px;
+	background: linear-gradient(
+		to right,
+		rgb(255, 0, 0) 0%,
+		rgb(255, 255, 0) 20%,
+		rgb(0, 255, 0) 40%,
+		rgb(0, 255, 0) 60%,
+		rgb(255, 255, 0) 80%,
+		rgb(255, 0, 0) 100%
+	);
+	border-radius: 10px;
+	border: 1px solid #4a4949;
+}
 .container_chamados {
 	display: flex;
 	flex-direction: column;

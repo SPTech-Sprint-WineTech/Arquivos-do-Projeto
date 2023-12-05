@@ -155,3 +155,23 @@ values ('WineTech', 'admin', '11-9000000000', '000000000000000000', 'admin@winet
 
 insert into usuario (fkEmpresa, nome, telefoneCel, email, senha)
 values (1, 'admin', '11-9100000000', 'useradmin@gmail.com', 'adminadmin');
+
+
+
+
+
+
+
+insert into dadosSensor (fkSensor, registro)
+values (1, 15.0),
+       (2, 75),
+       (3, 15.2),
+       (4, 75),
+       (1, 15.0),
+       (2, 75),
+       (3, 16),
+       (4, 72),
+       (1, 19.0),
+       (2, 75),
+       (3, 14.9),
+       (4, 77),
