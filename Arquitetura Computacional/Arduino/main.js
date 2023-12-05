@@ -9,6 +9,8 @@ const HABILITAR_OPERACAO_INSERIR = true;
 const serial = async (
     valoresDht11Umidade,
     valoresDht11Temperatura,
+    valoresDht11Umidade2,
+    valoresDht11Temperatura2
     // valoresLuminosidade,
     // valoresLm35Temperatura,
     // valoresChave
@@ -19,7 +21,7 @@ const serial = async (
             port: 3306,
             user: 'root',
             password: '#Gf44420982802',
-            database: 'arduino'
+            database: 'WineTech'
         }
     ).promise();
 
@@ -41,15 +43,19 @@ const serial = async (
         const valores = data.split(',');
         const dht11Umidade = parseFloat(valores[0]);
         const dht11Temperatura = parseFloat(valores[1]);
+        const dht11Umidade2 = parseFloat(valores[0])+8;
+        const dht11Temperatura2 = parseFloat(valores[1])-10;
 
         valoresDht11Umidade.push(dht11Umidade);
         valoresDht11Temperatura.push(dht11Temperatura);
-
-        console.log(dht11Umidade, dht11Temperatura);
+        valoresDht11Umidade2.push(dht11Umidade2);
+        valoresDht11Temperatura2.push(dht11Temperatura2);
+        
+        console.log(dht11Umidade, dht11Temperatura, dht11Umidade2, dht11Temperatura2);
 
         if (HABILITAR_OPERACAO_INSERIR) {
             await poolBancoDados.execute(
-                `INSERT INTO sensor (Umidade, Temperatura) VALUES (?, ?)`, [dht11Umidade, dht11Temperatura],
+                `INSERT INTO dadossensor (fkSensor, registro) VALUES (1, ?),(2, ?), (3, ?), (4, ?)`, [dht11Umidade, dht11Temperatura, dht11Umidade2, dht11Temperatura2],
             );
         }
 
@@ -62,6 +68,8 @@ const serial = async (
 const servidor = (
     valoresDht11Umidade,
     valoresDht11Temperatura,
+    valoresDht11Umidade2,
+    valoresDht11Temperatura2,
 ) => {
     const app = express();
     app.use((request, response, next) => {
@@ -78,6 +86,12 @@ const servidor = (
     app.get('/sensores/dht11/temperatura', (_, response) => {
         return response.json(valoresDht11Temperatura);
     });
+    app.get('/sensores/dht11/umidade2', (_, response) => {
+        return response.json(valoresDht11Umidade2);
+    });
+    app.get('/sensores/dht11/temperatura2', (_, response) => {
+        return response.json(valoresDht11Temperatura2);
+    });
     // app.get('/sensores/luminosidade', (_, response) => {
     //     return response.json(valoresLuminosidade);
     // });
@@ -92,12 +106,16 @@ const servidor = (
 (async () => {
     const valoresDht11Umidade = [];
     const valoresDht11Temperatura = [];
+    const valoresDht11Umidade2 = [];
+    const valoresDht11Temperatura2 = [];
     // const valoresLuminosidade = [];
     // const valoresLm35Temperatura = [];
     // const valoresChave = [];
     await serial(
         valoresDht11Umidade,
         valoresDht11Temperatura,
+        valoresDht11Umidade2,
+        valoresDht11Temperatura2,
         // valoresLuminosidade,
         // valoresLm35Temperatura,
         // valoresChave
@@ -105,6 +123,8 @@ const servidor = (
     servidor(
         valoresDht11Umidade,
         valoresDht11Temperatura,
+        valoresDht11Umidade2,
+        valoresDht11Temperatura2,
         // valoresLuminosidade,
         // valoresLm35Temperatura,
         // valoresChave
