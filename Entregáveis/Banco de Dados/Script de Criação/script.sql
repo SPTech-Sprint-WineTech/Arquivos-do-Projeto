@@ -4,6 +4,7 @@ use WineTech;
 
 drop database winetech;
 
+select * from vinicola;
 select * from usuario;
 
 select idUsuario, fkVinicola, nome from usuario WHERE email = 'alex@xvnovembro.com' AND senha = '123456';
@@ -12,7 +13,7 @@ select idUsuario, fkVinicola, nome from usuario WHERE email = 'alex@xvnovembro.c
 create table vinicola(
 idVinicola int primary key auto_increment,
 nome varchar(45) not null,
-CNPJ char(15) not null unique,
+CNPJ char(14) not null unique,
 CEP char(9) not null unique,
 numero int not null,
 complemento varchar(70)
@@ -71,16 +72,18 @@ primary key(idDados, fkSensor)
 
 
 -- SELECT PARA TRAZER TEMPERATURA DO BANCO DE DADOS DE ACORDO COM O ID DA ADEGA E TIPO DO SENSOR, POIS NAO TENHO O ID DO SENSOR SALVO NO BACKEND
+
 /*
-select dS.registro as temperatura, dS.leitura, DATE_FORMAT(dS.leitura, '%H:%i:%s') as momento_grafico from dadosSensor as dS
+select dS.registro as temperatura, DATE_FORMAT(dS.dataHora, '%d/%m/%Y') as data_grafico, DATE_FORMAT(dS.dataHora, '%H:%i:%s') as momento_grafico from dadosSensor as dS
 join sensor as s on s.idSensor = dS.fkSensor
-where s.fkAdega = ${idAdega} and s.tipo = 'LM35' order by dS.idDados desc limit ${limite_linhas};
+where s.fkAdega = ${idAdega} and s.tipo = 'DHT11' and DATE(dS.dataHora) > (NOW() - INTERVAL 7 DAY);
 */
+
 
 
 -- SCRIPT DE INSERÇÃO DE REGISTRO
 insert into vinicola (nome, CNPJ, CEP, numero, complemento)
-values ('XV de Novembro', '123456789000190', '12345-678', 123, null);
+values ('XV de Novembro', '12345678000190', '12345-678', 123, null);
 
 insert into usuario (fkVinicola, nome, telefone, email, senha, validacao)
 values 	(1, 'xvdenovembrosr', '11996131411', 'xvdenovembro@gmail.com', '123456', 0);

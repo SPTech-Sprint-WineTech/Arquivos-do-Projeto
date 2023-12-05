@@ -32,6 +32,7 @@
 							<h3>Temperatura atual:</h3>
 						</div>
 						<div>
+							<h2><span id="tempAtual"></span>C°</h2>
 							<!-- <canvas id="velo_temperatura" height="80"></canvas> -->
 						</div>
 					</div>
@@ -41,6 +42,7 @@
 							<h3>Umidade atual:</h3>
 						</div>
 						<div>
+							<h2><span id="umidAtual"></span>%</h2>
 							<!-- <canvas id="velo_umidade" width="80" height="80"></canvas> -->
 						</div>
 					</div>
@@ -57,7 +59,10 @@
 							</div>
 
 							<div class="graficos_chamados">
-								<canvas id="myPieChart" width="150" height="80"></canvas>
+								<canvas
+									id="grafico_pizza_chamado"
+									width="150"
+									height="80"></canvas>
 							</div>
 						</div>
 					</div>
@@ -121,7 +126,7 @@
 				<div class="container_kpis">
 					<div class="kpis">
 						<h3>Temperatura mínima:</h3>
-						<h2><span id="tempMax">12</span>C°</h2>
+						<h2><span id="tempMin">12</span>C°</h2>
 						<h4>(24H)</h4>
 					</div>
 
@@ -133,13 +138,13 @@
 
 					<div class="kpis">
 						<h3>Umidade miníma:</h3>
-						<h2>70%</h2>
+						<h2><span id="umidMin">70</span>%</h2>
 						<h4>(24H)</h4>
 					</div>
 
 					<div class="kpis">
 						<h3>Umidade máxima:</h3>
-						<h2>80%</h2>
+						<h2><span id="umidMax">80</span>%</h2>
 						<h4>(24H)</h4>
 					</div>
 				</div>
@@ -158,10 +163,7 @@
 						</div>
 
 						<div class="select_adegas">
-							<select id="select_adegas">
-								<option value="1">Adega Maria</option>
-								<option value="2">Adega Rose</option>
-							</select>
+							<select id="select_adegas"></select>
 						</div>
 
 						<div class="ajuda">
@@ -182,34 +184,37 @@
 </html>
 
 <script src="../js/dashboard.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-	var ctx = document.getElementById("grafico_ocorrencia");
+	// let proximaAtualizacao;
 
-	new Chart(ctx, {
+	// linha 01 da dash
+	var coluna_grafico = document.getElementById("grafico_coluna_chamado");
+	// column_chart
+
+	var pizza_grafico = document.getElementById("grafico_pizza_chamado");
+	// pizza_chart
+
+	// grafico linha 02 da dash
+	var ocorrencia_grafico = document.getElementById("grafico_ocorrencia");
+	// bar_chart
+
+	// ultimos 07 dias de dados
+	var bar_chart = {
 		type: "bar",
 		data: {
-			labels: [
-				"Domingo",
-				"Segunda",
-				"Terça",
-				"Quarta",
-				"Quinta",
-				"Sexta",
-				"Sábado",
-			],
+			labels: [],
 			datasets: [
 				{
 					label: "temperatura",
-					data: [15, 19, 17, 15, 17, 13, 18],
+					data: [],
 					borderWidth: 1,
 					backgroundColor: "#FF6384",
 				},
 				{
 					label: "umidade",
-					data: [70, 62, 63, 65, 62, 63, 68],
+					data: [],
 					borderWidth: 1,
 					backgroundColor: "#FFCE56",
 				},
@@ -236,11 +241,10 @@
 				},
 			},
 		},
-	});
+	};
 
-	var coluna_chamado = document.getElementById("grafico_coluna_chamado");
-
-	new Chart(coluna_chamado, {
+	// total ocorrencias por categoria na ultima semana
+	var column_chart = {
 		type: "bar",
 		data: {
 			labels: ["Temperatura", "Umidade"],
@@ -273,18 +277,16 @@
 				},
 			},
 		},
-	});
+	};
 
-	var pizza_chamado = document.getElementById("myPieChart");
-
-	// Defina os dados do gráfico de pizza
-	new Chart(pizza_chamado, {
+	// Total de ocorrencias na ultima semana
+	let pizza_chart = {
 		type: "pie",
 		data: {
-			labels: ["Temperatura", "Umidade"],
+			labels: [],
 			datasets: [
 				{
-					data: [60, 40], // Valores percentuais para cada categoria
+					data: [], // Valores percentuais para cada categoria
 					backgroundColor: ["#FF6384", "#FFCE56"],
 				},
 			],
@@ -311,70 +313,5 @@
 				},
 			},
 		},
-	});
-
-	// var dougUmid = document.getElementById("velo_umidade");
-
-	// // Defina os dados do gráfico de velocimetro
-	// new Chart(dougUmid, {
-	// 	type: "doughnut",
-	// 	data: {
-	// 		labels: ["Umidade"],
-	// 		datasets: [
-	// 			{
-	// 				label: "# of Votes",
-	// 				data: [10, 10, 10, 10, 10],
-	// 				backgroundColor: [
-	// 					"#ff0000",
-	// 					"#ffff00",
-	// 					"#00ff00",
-	// 					"#ffff00",
-	// 					"#ff0000",
-	// 				],
-	// 				borderWidth: 0,
-	// 			},
-	// 		],
-	// 	},
-	// 	options: {
-	// 		plugins: {
-	// 			legend: {
-	// 				position: "none",
-	// 			},
-	// 		},
-	// 		circumference: 190,
-	// 		rotation: 265,
-	// 	},
-	// });
-	// var dougTemp = document.getElementById("velo_temperatura");
-
-	// // Defina os dados do gráfico de velocimetro
-	// new Chart(dougTemp, {
-	// 	type: "doughnut",
-	// 	data: {
-	// 		labels: ["Umidade"],
-	// 		datasets: [
-	// 			{
-	// 				label: "# of Votes",
-	// 				data: [10, 10, 10, 10, 10],
-	// 				backgroundColor: [
-	// 					"#ff0000",
-	// 					"#ffff00",
-	// 					"#00ff00",
-	// 					"#ffff00",
-	// 					"#ff0000",
-	// 				],
-	// 				borderWidth: 0,
-	// 			},
-	// 		],
-	// 	},
-	// 	options: {
-	// 		plugins: {
-	// 			legend: {
-	// 				position: "none",
-	// 			},
-	// 		},
-	// 		circumference: 190,
-	// 		rotation: 265,
-	// 	},
-	// });
+	};
 </script>
